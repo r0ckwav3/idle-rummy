@@ -29,7 +29,7 @@ code {
 
 .rightPanel{
     position: absolute;
-    right: 100%;
+    right: 0%;
     left: 70%;
     top: 0%;
     bottom: 0%;
@@ -39,5 +39,5 @@ code {
     justify-content: space-between; */
 
     /* temporary */
-    background: #EFF;
+    background: #FFE;
 }
