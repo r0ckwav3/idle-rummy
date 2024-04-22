@@ -25,6 +25,39 @@ function Tooltip({ state }) {
   );
 }
 
+const initialTooltipState = {
+  content: "intitial tooltip",
+  visible: false,
+  x: 0,
+  y: 0
+}
+
+function tooltipReducer(state, action) {
+  switch (action.type) {
+    case 'update': {
+      return {
+        content: (action.content != null)?action.content:state.content,
+        visible: (action.visible != null)?action.visible:state.visible,
+        x: (action.x != null)?action.x:state.x,
+        y: (action.y != null)?action.y:state.y,
+      };
+    }
+    default: {
+      throw Error('Unrecognized Action');
+    }
+  }
+}
+
+export const TooltipDispatchContext = createContext((_action) => { throw Error("uninitialized TooltipDispatch"); });
+
+export function TooltipManager({ children }){
+  const [tooltipState, tooltipDispatch] = useReducer(tooltipReducer, initialTooltipState);
+  return (<TooltipDispatchContext.Provider value={tooltipDispatch}>
+    {children}
+    <Tooltip state={tooltipState} />
+  </TooltipDispatchContext.Provider>);
+}
+
 // the last child is the tooltip content
 export default function TooltipBox({children}) {
   const thisRef = useRef();
@@ -73,37 +106,4 @@ export default function TooltipBox({children}) {
       {children.slice(0, -1)}
     </div>
   );
-}
-
-const initialTooltipState = {
-  content: "intitial tooltip",
-  visible: false,
-  x: 0,
-  y: 0
-}
-
-function tooltipReducer(state, action) {
-  switch (action.type) {
-    case 'update': {
-      return {
-        content: (action.content != null)?action.content:state.content,
-        visible: (action.visible != null)?action.visible:state.visible,
-        x: (action.x != null)?action.x:state.x,
-        y: (action.y != null)?action.y:state.y,
-      };
-    }
-    default: {
-      throw Error('Unrecognized Action');
-    }
-  }
-}
-
-export const TooltipDispatchContext = createContext((_action) => { throw Error; });
-
-export function TooltipManager({ children }){
-  const [tooltipState, tooltipDispatch] = useReducer(tooltipReducer, initialTooltipState);
-  return (<TooltipDispatchContext.Provider value={tooltipDispatch}>
-    {children}
-    <Tooltip state={tooltipState} />
-  </TooltipDispatchContext.Provider>);
 }
