@@ -11,7 +11,7 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
   // this never changes, but is useful for memoization
   const trueMilestoneID = useState((milestoneID == null) ? milestoneManager.getMilestone(milestoneName).id : milestoneID)[0];
   const milestone = useMilestone(trueMilestoneID);
-  const imgpath = getMilestoneImage(milestone);
+  const icon_img = getMilestoneImage(milestone);
 
   function handleClick() {
     // TODO: Hook this up to the game file when I finish it
@@ -28,7 +28,7 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
   return (
   <button onClick={handleClick} className="milestoneBox">
     <TooltipBox>
-      <img className="milestoneImage" src={imgpath} alt={milestone.displayName}/>
+      {icon_img}
       <div>
         <b> {milestone.displayName} </b>
         {milestone.cost===-1?"":"cost: "+milestone.cost} {/*TODO:  right align this*/}
@@ -74,9 +74,5 @@ function useMilestone(milestoneID){
 }
 
 function getMilestoneImage(milestone){
-  try {
-    return require("/images/milestones/"+milestone.kind+"/"+milestone.name+".png");
-  } catch (err){
-    return require("/images/milestones/other/unknown.png");
-  }
+  return (<img className="milestoneImage" src={"/images/milestones/"+milestone.kind+"/"+milestone.name+".png"} alt={milestone.displayName + " icon"} />);
 }
