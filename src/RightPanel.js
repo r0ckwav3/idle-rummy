@@ -6,6 +6,14 @@ export default function RightPanel(){
       I'm in the right panel
       <br />
       <MilestoneBox milestoneName = "unknown"/>
+      <br />
+      <MilestoneBox milestoneName = "unknown"/>
+      <br />
+      <MilestoneBox milestoneName = "unknown"/>
+      <br />
+      <MilestoneBox milestoneName = "unknown"/>
+      <br />
+      <MilestoneBox milestoneName = "unknown"/>
     </div>
   )
 }
