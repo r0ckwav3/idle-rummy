@@ -59,7 +59,7 @@ export function TooltipManager({ children }){
 }
 
 // the last child is the tooltip content
-export default function TooltipBox({children}) {
+export function TooltipBox({children}) {
   const thisRef = useRef();
   const tooltipDispatch = useContext(TooltipDispatchContext);
 

@@ -1,3 +1,4 @@
+import {TooltipManager} from "./Utils/Tooltip.js"
 import RightPanel from './RightPanel.js';
 import MainPanel from './MainPanel.js';
 import './styles.css';
@@ -5,8 +6,10 @@ import './styles.css';
 function App() {
   return (
     <div className="App">
+    <TooltipManager>
       <MainPanel/>
       <RightPanel/>
+    </ TooltipManager>
     </div>
   );
 }
