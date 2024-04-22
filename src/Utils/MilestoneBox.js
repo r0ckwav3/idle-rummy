@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TooltipBox from "./Tooltip.js";
+import {TooltipBox} from "./Tooltip.js";
 import milestoneManager from "./MilestoneManager.js";
 import eventManager from "./EventManager.js";
 // import game from "./Game.js";
