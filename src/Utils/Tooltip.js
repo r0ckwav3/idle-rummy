@@ -15,11 +15,17 @@ function Tooltip({ state }) {
     setComponentRect([box.right-box.left,box.bottom-box.top]);
   }, [state.content])
 
+  let my_left = state.x - (componentRect[0]/2);
+  let my_top = state.topy - componentRect[1] - tooltipPadding;
+  if (my_top <= 0){
+    my_top = state.bottomy + tooltipPadding;
+  }
+
   return (
     <div className="Tooltip" ref={thisRef} style={{
       display: (state.visible ? "block" : "none"),
-      left: state.x - (componentRect[0]/2),
-      top: state.y - componentRect[1] - tooltipPadding,
+      left: my_left,
+      top: my_top,
     }}>
       {state.content}
     </div>
@@ -30,7 +36,8 @@ const initialTooltipState = {
   content: "intitial tooltip",
   visible: false,
   x: 0,
-  y: 0
+  topy: 0,
+  bottomy: 0,
 }
 
 function tooltipReducer(state, action) {
@@ -40,7 +47,8 @@ function tooltipReducer(state, action) {
         content: (action.content != null)?action.content:state.content,
         visible: (action.visible != null)?action.visible:state.visible,
         x: (action.x != null)?action.x:state.x,
-        y: (action.y != null)?action.y:state.y,
+        topy: (action.topy != null)?action.topy:state.topy,
+        bottomy: (action.bottomy != null)?action.bottomy:state.bottomy,
       };
     }
     default: {
@@ -80,12 +88,14 @@ export function TooltipBox({children}) {
     const clientRect = thisRef.current.getBoundingClientRect()
     const docmiddle = (clientRect.right + clientRect.left)/2 + window.scrollX;
     const doctop = clientRect.top + window.scrollY;
+    const docbottom = clientRect.bottom + window.scrollY;
     tooltipDispatch({
       type: "update",
       content: children[children.length-1],
       visible: true,
       x: docmiddle,
-      y: doctop
+      topy: doctop,
+      bottomy: docbottom,
     });
   }
 
