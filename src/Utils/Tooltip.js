@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext, useReducer, createContext } from 'react';
+import './styles.css';
 
 const tooltipPadding = 10;
 

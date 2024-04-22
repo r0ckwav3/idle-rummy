@@ -3,6 +3,7 @@ import {TooltipBox} from "./Tooltip.js";
 import milestoneManager from "./MilestoneManager.js";
 import eventManager from "./EventManager.js";
 // import game from "./Game.js";
+import './styles.css';
 
 
 // you only need one of milestoneID or milestoneName. If both are given, milestoneID will override
