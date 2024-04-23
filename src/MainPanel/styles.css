@@ -26,4 +26,16 @@
     /* TODO: scale down cards on smaller screens */
     height: 300px;
     width: 200px;
+
+    margin-top: 0;
+    transition: margin-top 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+.card:hover{
+    margin-top: -50px;
+}
+
+.card.selected{
+    margin-top: -50px;
 }
