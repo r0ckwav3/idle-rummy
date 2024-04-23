@@ -34,10 +34,12 @@ function Card({suit, value, islast}){
     mystyles["min-width"] = 0;
   }
   return (
-    <div className = "card" style={mystyles}>
-    {suit_to_symbol(suit)}
-    <br/>
-    {value}
+    <div className = "cardcontainer" style={mystyles}>
+      <div className = "card">
+        {suit_to_symbol(suit)}
+        <br/>
+        {value}
+      </div>
   </ div>
   );
 }
