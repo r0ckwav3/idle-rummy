@@ -18,6 +18,8 @@
     font-size: 2em;
     background: #FFF;
     border: 2px solid #000;
-    height: 50px;
-    width: 50px;
+    padding: 10px;
+    /* TODO: scale down cards on smaller screens */
+    /* height: 300px;
+    width: 200px; */
 }
