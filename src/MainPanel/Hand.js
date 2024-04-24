@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {deal_hand, suit_to_symbol} from '../Game/Card.js';
 
 export default function CardHand(){
   let [handContents, setHandContents] = useState([]);
@@ -27,14 +28,8 @@ export default function CardHand(){
 
   return (
     <div> {/* TEMP */}
-      <button onClick = {() => setHandContents([{suit:"spade", value:"4", selected:false},{suit:"heart", value:"4", selected:false},{suit:"diamond", value:"4", selected:false},{suit:"club", value:"4", selected:false}])}>
-        Make a 4-of-a kind
-      </button>
-      <button onClick = {() => setHandContents([1,2,3,4,5,6,7,8,9,10,"J","Q","K"].map(v => {return {suit:"spade", value:v, seleced:false}}))}>
-        Make a suit
-      </button>
-      <button onClick = {() => append_card(["spade","heart","diamond","club"][Math.floor(Math.random()*4)],[1,2,3,4,5,6,7,8,9,10,"J","Q","K"][Math.floor(Math.random()*13)])}>
-        Add a random card
+      <button onClick = {() => setHandContents(deal_hand(5))}>
+        Deal a hand
       </button>
       <div className = "cardHand">
         {cardobs}
@@ -63,18 +58,4 @@ function Card({card, set_selected, islast}){
       </div>
   </ div>
   );
-}
-
-function suit_to_symbol(suit){
-  if(suit === "spade"){
-    return "♠";
-  }else if(suit === "heart"){
-    return "♡";
-  }else if(suit === "diamond"){
-    return "♢";
-  }else if(suit === "club"){
-    return "♣";
-  }else{
-    return "?";
-  }
 }
