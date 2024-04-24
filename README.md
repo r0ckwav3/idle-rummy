@@ -31,4 +31,22 @@ Right now you need to build the react project yourself by cloning this repo. I'l
 
 ### Point Brainstorming
 Idk where to put this so I'm just tossing it in the readme
-I want to get some stats on how common each hand type is for 5, 7 and 10 cards
+
+Hand probabilities:
+```
+              5 cards  |  7 cards | 10 cards
+1-of-a-kind    50.69%  |   21.06% |   2.02%
+2-of-a-kind    47.02%  |   71.14% |   73.74%
+3-of-a-kind    2.27%   |   7.63%  |   23.26%
+4-of-a-kind    0.03%   |   0.17%  |   0.98%
+1-in-a-row     67.69%  |   42.39% |   14.03%
+2-in-a-row     30.39%  |   51.22% |   65.96%
+3-in-a-row     1.83%   |   5.90%  |   17.26%
+4-in-a-row     0.08%   |   0.46%  |   2.46%
+5-in-a-row     0.00%   |   0.03%  |   0.25%
+6-in-a-row     0.00%   |   0.00%  |   0.03%
+7-in-a-row     0.00%   |   0.00%  |   0.00%
+8-in-a-row     0.00%   |   0.00%  |   0.00%
+9-in-a-row     0.00%   |   0.00%  |   0.00%
+10-in-a-row    0.00%   |   0.00%  |   0.00%
+```
