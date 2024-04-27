@@ -49,3 +49,7 @@ export function suit_to_symbol(suit){
 function value_to_num(value){
   return values.findIndex(x => x===value);
 }
+
+export function calculateHandValue(hand){
+  return hand.length;
+}
