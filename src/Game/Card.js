@@ -19,7 +19,7 @@ eventManager.createHook("submitHand", e => {
 });
 
 // PUBLIC FUNCTIONS
-export function get_deck(){
+export function getDeck(){
   return suits.flatMap(s =>
     values.map(v =>
       ({suit:s, value:v})
@@ -27,8 +27,8 @@ export function get_deck(){
   );
 }
 
-export function deal_hand(cardnum){
-  let deck = get_deck();
+export function dealHand(cardnum){
+  let deck = getDeck();
   let temp;
   for(let i = 0; i<cardnum; i++){
     // pick a card from i-decksize
@@ -41,13 +41,13 @@ export function deal_hand(cardnum){
   return deck.slice(0, cardnum);
 }
 
-export function random_card(){
+export function randomCard(){
   let s = suits[Math.floor(Math.random()*suits.length)];
   let v = values[Math.floor(Math.random()*values.length)];
   return {suit: s, value: v};
 }
 
-export function suit_to_symbol(suit){
+export function suitToSymbol(suit){
   if(suit === "spade"){
     return "♠";
   }else if(suit === "heart"){
@@ -61,8 +61,8 @@ export function suit_to_symbol(suit){
   }
 }
 
-export function is_valid_hand(hand){
-  return true;
+export function isValidHand(hand){
+  return hand.length !== 0;
 }
 
 export function calculateHandValue(hand){
@@ -71,6 +71,6 @@ export function calculateHandValue(hand){
 
 // PRIVATE FUNCTIONS
 
-function value_to_num(value){
+function valueToNum(value){
   return values.findIndex(x => x===value);
 }

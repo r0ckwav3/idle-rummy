@@ -1,4 +1,4 @@
-import _game from "./Game/Game.js";
+import game from "./Game/Game.js";
 
 import {TooltipManager} from "./Utils/Tooltip.js";
 import RightPanel from './RightPanel.js';
