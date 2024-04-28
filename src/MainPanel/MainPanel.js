@@ -30,7 +30,7 @@ function SubmitHandButton(){
   });
 
   function buttonClicked() {
-    eventManager.sendEvent({name: "submitHand", value: null});
+    eventManager.sendEvent({name: "attemptSubmitHand"});
   }
   return (
     <button className = "submitHandButton" onClick = {buttonClicked}>

@@ -23,6 +23,10 @@ class Game{
       return true;
     }
   }
+
+  addChips(n){
+    this.chips += n;
+  }
 }
 
 let game = new Game();

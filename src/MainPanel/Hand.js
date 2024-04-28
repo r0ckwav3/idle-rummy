@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
-import {deal_hand, suit_to_symbol} from '../Game/Card.js';
+import {deal_hand, suit_to_symbol, is_valid_hand} from '../Game/Card.js';
 import eventManager from '../Utils/EventManager.js';
 
 export default function CardHand(){
@@ -35,6 +35,20 @@ export default function CardHand(){
     let islast = (i === handContents.length-1);
     let set_selected = (v => set_selected_idx(i, v));
     return (<Card key = {i+el.suit+el.value} card={el} set_selected={set_selected} islast = {islast}/>);
+  });
+
+  useEffect(()=>{
+    const eventHook = eventManager.createHook("attemptSubmitHand", _e => {
+      if(handContents.length !== 0 && is_valid_hand(handContents)){
+        let temphand = handContents.filter((c,_j) => c.selected);
+        set_hand([]);
+        eventManager.sendEvent({name: "submitHand", hand: temphand});
+      }
+    });
+
+    return () => {
+      eventManager.removeHook(eventHook);
+    };
   });
 
   return (

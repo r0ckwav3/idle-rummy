@@ -1,9 +1,24 @@
+import eventManager from '../Utils/EventManager.js';
+import game from "./Game"
+
 // Helper functions that deal with cards
 // expects card objects to have two keys "suit" and "value"
 
+
+
+// CONSTANTS
 export let suits = ["spade", "heart", "diamond", "club"];
 export let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
+// EVENT HOOKS
+
+eventManager.createHook("submitHand", e => {
+  let value = calculateHandValue(e.hand);
+  console.log(`You got ${value} chips!`);
+  game.addChips(value);
+});
+
+// PUBLIC FUNCTIONS
 export function get_deck(){
   return suits.flatMap(s =>
     values.map(v =>
@@ -46,10 +61,16 @@ export function suit_to_symbol(suit){
   }
 }
 
-function value_to_num(value){
-  return values.findIndex(x => x===value);
+export function is_valid_hand(hand){
+  return true;
 }
 
 export function calculateHandValue(hand){
   return hand.length;
+}
+
+// PRIVATE FUNCTIONS
+
+function value_to_num(value){
+  return values.findIndex(x => x===value);
 }
