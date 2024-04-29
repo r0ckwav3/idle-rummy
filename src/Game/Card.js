@@ -62,7 +62,35 @@ export function suitToSymbol(suit){
 }
 
 export function isValidHand(hand){
-  return hand.length !== 0;
+  if(hand.length === 0){
+    return false;
+  }
+  let uniquevalues = new Set();
+  let uniquesuits = new Set();
+  hand.forEach(card => {
+    uniquevalues.add(card.value);
+    uniquesuits.add(card.suit);
+  });
+  console.log("testing");
+  console.log(hand);
+  console.log(uniquevalues);
+  console.log(uniquesuits);
+  // check for n-of-a-kind
+  if(uniquevalues.size === 1){
+    return true;
+  }
+  //check for straights
+  if(uniquesuits.size === 1){
+    let values = uniquevalues.entries().map(valueToNum);
+    values.sort();
+    for(let i = 0; i<values.length-1; i++){
+      if(values[i] !== values[i+1]-1){
+        return false;
+      }
+    }
+    return true;
+  }
+  return false;
 }
 
 export function calculateHandValue(hand){

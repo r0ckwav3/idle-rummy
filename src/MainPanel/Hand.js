@@ -39,8 +39,8 @@ export default function CardHand(){
 
   useEffect(()=>{
     const eventHook = eventManager.createHook("attemptSubmitHand", _e => {
-      if(handContents.length !== 0 && isValidHand(handContents)){
-        let temphand = handContents.filter((c,_j) => c.selected);
+      let temphand = handContents.filter((c,_j) => c.selected);
+      if(temphand.length !== 0 && isValidHand(temphand)){
         setHand([]);
         eventManager.sendEvent({name: "submitHand", hand: temphand});
       }
