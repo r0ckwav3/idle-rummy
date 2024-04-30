@@ -15,15 +15,19 @@ export default function CardHand(){
 
   function setSelectedIdx(i, v){
     // slightly sus but I think react is ok with it
-    setHandContents(handContents.map((el, j) => {
+    let temphand = handContents.map((el, j) => {
       if(j === i){
         return {suit:el.suit, value:el.value, selected: v};
       }else{
         return el;
       }
-    }));
+    })
+    let tempselectedhand = temphand.filter(c => c.selected);
 
-    eventManager.sendEvent({name:"updateHandSelection", hand:handContents.filter((c,j) => j === i ? v : c.selected)});
+    if (isValidHand(tempselectedhand) || tempselectedhand.length === 0){
+      setHandContents(temphand);
+      eventManager.sendEvent({name:"updateHandSelection", hand:tempselectedhand});
+    }
   }
 
   function setHand(h){

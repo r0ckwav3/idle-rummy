@@ -71,10 +71,6 @@ export function isValidHand(hand){
     uniquevalues.add(card.value);
     uniquesuits.add(card.suit);
   });
-  console.log("testing");
-  console.log(hand);
-  console.log(uniquevalues);
-  console.log(uniquesuits);
   // check for n-of-a-kind
   if(uniquevalues.size === 1){
     return true;
@@ -82,7 +78,8 @@ export function isValidHand(hand){
   //check for straights
   if(uniquesuits.size === 1){
     let values = Array.from(uniquevalues).map(valueToNum);
-    values.sort();
+    values.sort((a,b)=>a-b);
+    console.log(values);
     for(let i = 0; i<values.length-1; i++){
       if(values[i] !== values[i+1]-1){
         return false;
