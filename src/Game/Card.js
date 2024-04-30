@@ -81,7 +81,7 @@ export function isValidHand(hand){
   }
   //check for straights
   if(uniquesuits.size === 1){
-    let values = uniquevalues.entries().map(valueToNum);
+    let values = Array.from(uniquevalues).map(valueToNum);
     values.sort();
     for(let i = 0; i<values.length-1; i++){
       if(values[i] !== values[i+1]-1){
