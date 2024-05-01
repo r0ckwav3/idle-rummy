@@ -26,6 +26,7 @@ class Game{
 
   addChips(n){
     this.chips += n;
+    eventManager.sendEvent({name: "updateChips", value: this.chips})
   }
 }
 

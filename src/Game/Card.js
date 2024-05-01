@@ -14,7 +14,6 @@ export let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q"
 
 eventManager.createHook("submitHand", e => {
   let value = calculateHandValue(e.hand);
-  console.log(`You got ${value} chips!`);
   game.addChips(value);
 });
 
