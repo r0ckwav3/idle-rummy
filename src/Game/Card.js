@@ -91,10 +91,46 @@ export function isValidHand(hand){
 }
 
 export function calculateHandValue(hand){
+  // From README.md:
+  //  * For a single card, you get the written value + 10 (face cards are 20 points)
+  //  * For a pair, you get 5 * point value
+  //  * For a 3oaK, you get 50 * point value
+  //  * For a 4oaK, you get 500 * point value
+  //  * n in a row is n^2*point sum
+
+  let uniquevalues = new Set();
+  let uniquesuits = new Set();
+  hand.forEach(card => {
+    uniquevalues.add(card.value);
+    uniquesuits.add(card.suit);
+  });
+
+  if(uniquevalues.size === 1){
+    console.log(hand.length, uniquevalues.size, uniquesuits.size);
+    if(hand.length === 1){
+      return singleCardPointValue(hand[0]);
+    }else if(hand.length === 2){
+      return singleCardPointValue(hand[0]) * 5;
+    }else if(hand.length === 3){
+      return singleCardPointValue(hand[0]) * 50;
+    }else if(hand.length === 4){
+      return singleCardPointValue(hand[0]) * 500;
+    }
+  }
+
   return hand.length;
 }
 
 // PRIVATE FUNCTIONS
+
+function singleCardPointValue(card){
+  let valueid = valueToNum(card.value);
+  if(valueid > 9){
+    return 20;
+  }else{
+    return valueid + 11;
+  }
+}
 
 function valueToNum(value){
   return values.findIndex(x => x===value);
