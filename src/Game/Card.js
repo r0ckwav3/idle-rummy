@@ -79,7 +79,6 @@ export function isValidHand(hand){
   if(uniquesuits.size === 1){
     let values = Array.from(uniquevalues).map(valueToNum);
     values.sort((a,b)=>a-b);
-    console.log(values);
     for(let i = 0; i<values.length-1; i++){
       if(values[i] !== values[i+1]-1){
         return false;
@@ -91,6 +90,9 @@ export function isValidHand(hand){
 }
 
 export function calculateHandValue(hand){
+  if (!isValidHand(hand)){
+    return 0;
+  }
   // From README.md:
   //  * For a single card, you get the written value + 10 (face cards are 20 points)
   //  * For a pair, you get 5 * point value
@@ -105,8 +107,8 @@ export function calculateHandValue(hand){
     uniquesuits.add(card.suit);
   });
 
+  // n-of-a-kinds
   if(uniquevalues.size === 1){
-    console.log(hand.length, uniquevalues.size, uniquesuits.size);
     if(hand.length === 1){
       return singleCardPointValue(hand[0]);
     }else if(hand.length === 2){
@@ -118,7 +120,9 @@ export function calculateHandValue(hand){
     }
   }
 
-  return hand.length;
+  // straights
+  let cardsum = hand.map(c => singleCardPointValue(c)).reduce((a,b)=>a+b);
+  return cardsum * (hand.length ** 2);
 }
 
 // PRIVATE FUNCTIONS
