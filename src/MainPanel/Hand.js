@@ -1,34 +1,63 @@
-import React, {useState} from 'react';
-import {deal_hand, suit_to_symbol} from '../Game/Card.js';
+import React, {useState, useEffect} from 'react';
+
+import {dealHand, suitToSymbol, isValidHand} from '../Game/Card.js';
+import eventManager from '../Utils/EventManager.js';
 
 export default function CardHand(){
   let [handContents, setHandContents] = useState([]);
 
-  function append_card(suit, value){
+  function appendCard(suit, value){
     setHandContents(handContents.concat([
       {suit:suit, value:value, selected:false}
     ]));
+    eventManager.sendEvent({name:"updateHandSelection", hand:handContents.filter((c,_j) => c.selected)});
   }
-  function set_selected_idx(i, v){
+
+  function setSelectedIdx(i, v){
     // slightly sus but I think react is ok with it
-    setHandContents(handContents.map((el, i1) => {
-      if(i1 === i){
+    let temphand = handContents.map((el, j) => {
+      if(j === i){
         return {suit:el.suit, value:el.value, selected: v};
       }else{
         return el;
       }
-    }));
+    })
+    let tempselectedhand = temphand.filter(c => c.selected);
+
+    if (isValidHand(tempselectedhand) || tempselectedhand.length === 0){
+      setHandContents(temphand);
+      eventManager.sendEvent({name:"updateHandSelection", hand:tempselectedhand});
+    }
+  }
+
+  function setHand(h){
+    setHandContents(h)
+    eventManager.sendEvent({name:"updateHandSelection", hand:[]});
   }
 
   let cardobs = handContents.map((el, i) => {
-    let islast = (i == handContents.length-1);
-    let set_selected = (v => set_selected_idx(i, v));
+    let islast = (i === handContents.length-1);
+    let set_selected = (v => setSelectedIdx(i, v));
     return (<Card key = {i+el.suit+el.value} card={el} set_selected={set_selected} islast = {islast}/>);
+  });
+
+  useEffect(()=>{
+    const eventHook = eventManager.createHook("attemptSubmitHand", _e => {
+      let temphand = handContents.filter((c,_j) => c.selected);
+      if(temphand.length !== 0 && isValidHand(temphand)){
+        setHand([]);
+        eventManager.sendEvent({name: "submitHand", hand: temphand});
+      }
+    });
+
+    return () => {
+      eventManager.removeHook(eventHook);
+    };
   });
 
   return (
     <div> {/* TEMP */}
-      <button onClick = {() => setHandContents(deal_hand(5))}>
+      <button onClick = {() => setHand(dealHand(5))}>
         Deal a hand
       </button>
       <div className = "cardHand">
@@ -52,7 +81,7 @@ function Card({card, set_selected, islast}){
   return (
     <div className = "cardcontainer" style={mystyles}>
       <div className = {myclass} onClick={() => set_selected(!card.selected)}>
-        {suit_to_symbol(card.suit)}
+        {suitToSymbol(card.suit)}
         <br/>
         {card.value}
       </div>

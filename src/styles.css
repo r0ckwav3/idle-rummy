@@ -11,20 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
-
 .mainPanel{
     position: absolute;
     right: 30%;
     left: 0%;
     top: 0%;
     bottom: 0%;
-    /* padding-left: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; */
-
-    /* temporary */
-    background: #EFF;
 }
 
 .rightPanel{

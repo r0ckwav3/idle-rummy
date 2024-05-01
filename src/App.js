@@ -1,4 +1,6 @@
-import {TooltipManager} from "./Utils/Tooltip.js"
+import game from "./Game/Game.js";
+
+import {TooltipManager} from "./Utils/Tooltip.js";
 import RightPanel from './RightPanel.js';
 import MainPanel from './MainPanel/MainPanel.js';
 import './styles.css';
