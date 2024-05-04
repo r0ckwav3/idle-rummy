@@ -39,3 +39,20 @@
     margin-top: -50px;
     height: 276px;
 }
+
+.submitHandButton{
+    border: none;
+    border-radius: 40px;
+    height: 100px;
+    width: 300px;
+    font-size: 2em;
+    background: #611F23;
+}
+
+.submitHandButton.active{
+    background: #B4222C;
+}
+
+.submitHandButton.active:hover{
+    background: #C7353F;
+}
