@@ -1,9 +1,9 @@
 .cardHand {
-    position: absolute;
-    right: 15%;
-    left: 15%;
+    margin-left: 50%;
+    transform: translateX(-50%);
     height: 250px;
-    bottom: 0%;
+    box-sizing: border-box; /* include everything else in width */
+    width: 70%;
     display: flex;
     flex-direction: row;
     /* padding-left: 20px;
@@ -21,10 +21,11 @@
     padding: 10px;
     /* TODO: scale down cards on smaller screens */
     bottom: 0%;
+    box-sizing: border-box;
     width: 200px;
 
     margin-top: 0;
-    height: 226px;
+    height: 250px;
     transition-property: margin-top, height;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
@@ -32,10 +33,29 @@
 
 .card:hover{
     margin-top: -20px;
-    height: 246px;
+    height: 270px;
 }
 
 .card.selected{
     margin-top: -50px;
-    height: 276px;
+    height: 300px;
+}
+
+.submitHandButton{
+    border: none;
+    border-radius: 40px;
+    height: 100px;
+    width: 300px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    background: #611F23;
+}
+
+.submitHandButton.active{
+    background: #B4222C;
+}
+
+.submitHandButton.active:hover{
+    background: #C7353F;
 }

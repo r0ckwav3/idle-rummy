@@ -7,8 +7,8 @@ import "./styles.css";
 export default function MainPanel(){
   return (
     <div className="mainPanel">
-      <SubmitHandButton />
       <ChipDisplay />
+      <SubmitHandButton />
       <CardHand />
     </div>
   )
