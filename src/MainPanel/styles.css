@@ -59,3 +59,29 @@
 .submitHandButton.active:hover{
     background: #C7353F;
 }
+
+.deckComponent{
+    box-sizing: border-box;
+    width: 100px;
+    height: 150px;
+    margin-top: 25px;
+    margin-left: 50px;
+
+    background: #FF0000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deckLoadingContainer{
+    box-sizing: border-box;
+    width: 80px;
+    height: 20px;
+    background: #000000;
+}
+
+.deckLoading{
+    height: 20px;
+    background: #00FF00;
+}
