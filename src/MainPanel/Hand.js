@@ -66,13 +66,8 @@ export default function CardHand(){
   });
 
   return (
-    <div> {/* TEMP */}
-      <button onClick = {() => setHand(dealHand(5))}>
-        Deal a hand
-      </button>
-      <div className = "cardHand">
-        {cardobs}
-      </div>
+    <div className = "cardHand">
+      {cardobs}
     </div>
   );
 }
