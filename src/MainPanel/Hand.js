@@ -55,14 +55,19 @@ export default function CardHand(){
     };
   });
 
+  useEffect(()=>{
+    const eventHook = eventManager.createHook("dealHand", e => {
+      setHand(e.hand);
+    });
+
+    return () => {
+      eventManager.removeHook(eventHook);
+    };
+  });
+
   return (
-    <div> {/* TEMP */}
-      <button onClick = {() => setHand(dealHand(5))}>
-        Deal a hand
-      </button>
-      <div className = "cardHand">
-        {cardobs}
-      </div>
+    <div className = "cardHand">
+      {cardobs}
     </div>
   );
 }
@@ -71,9 +76,9 @@ function Card({card, set_selected, islast}){
   let mystyles = {"width": 200};
 
   if (islast){
-    mystyles["min-width"] = 200;
+    mystyles["minWidth"] = 200;
   }else{
-    mystyles["min-width"] = 0;
+    mystyles["minWidth"] = 0;
   }
 
   let myclass = card.selected ? "card selected" : "card";
