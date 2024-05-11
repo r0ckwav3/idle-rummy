@@ -9,7 +9,7 @@ Right now you need to build the react project yourself by cloning this repo. I'l
 ### Todo List
  * Playable Game
    * [X] You can get points by scoring hands
-   * [ ] Deck cooldown
+   * [X] Deck cooldown
    * [ ] Upgrades are purchasable (and like 2 upgrades)
    * [ ] Upgrades are displayed nicely
    * [ ] Locked upgrades are hidden/greyed out
