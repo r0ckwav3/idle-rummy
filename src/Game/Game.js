@@ -20,7 +20,7 @@ class Game{
     // deck stuff
     if (this.deck_timer < this.deck_cooldown){
       this.deck_timer += dt;
-      eventManager.sendEvent({name: "updateDeckTimer", value: this.chips});
+      eventManager.sendEvent({name: "updateDeckTimer", value: (this.deck_timer/this.deck_cooldown)});
       if(this.deck_timer >= this.deck_cooldown){
         this.attemptDeal();
       }
@@ -51,7 +51,7 @@ class Game{
       this.hand_empty = false;
       this.deck_timer = 0;
       eventManager.sendEvent({name: "dealHand", hand: dealHand(this.cards_per_hand)});
-      eventManager.sendEvent({name: "updateDeckTimer", value: this.chips});
+      eventManager.sendEvent({name: "updateDeckTimer", value: (this.deck_timer/this.deck_cooldown)});
     }
   }
 
