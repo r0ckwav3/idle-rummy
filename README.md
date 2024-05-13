@@ -16,9 +16,11 @@ Right now you need to build the react project yourself by cloning this repo. I'l
    * [ ] Publish to a site
  * Pre-automation
    * [ ] All hand multiplier upgrades
-   * [ ] All handsize increase upgrades
-   * [ ] All timer decrease upgrades
+   * [X] All handsize increase upgrades
+   * [X] All timer decrease upgrades
    * [ ] Golden cards (probably have an upgrade to unlock them)
+   * [ ] Other upgrades
+     * Sort your hand, guarantee a face card, etc.
    * [ ] Playtest and balance
  * Visual upgrades
    * [ ] Backgrounds
