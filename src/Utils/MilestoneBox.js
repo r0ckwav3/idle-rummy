@@ -16,9 +16,9 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
 
   function handleClick() {
     // TODO: Hook this up to the game file when I finish it
-    console.log("Clicked milestone: " + milestoneName);
+    // console.log("Clicked milestone: " + milestoneName);
     if(!milestone.active && (milestone.cost !== -1)){
-      console.log("Purchasable");
+      // console.log("Purchasable");
       if(game.attemptPurchase(milestone.cost)){
         // console.log("Purchased");
         milestoneManager.setActive(trueMilestoneID, true);

@@ -44,7 +44,7 @@ class MilestoneManager{
   }
 
   setActive(id, active){
-    console.log("setActive(", id, "+", active, ");")
+    // console.log("setActive(", id, "+", active, ");")
     let milestone = this.getMilestonebyID(id);
     milestone.active = active;
     eventManager.sendEvent({
@@ -85,9 +85,9 @@ milestoneManager.createMilestone("unknown", "???", -1, "other", "You have not un
 // each deck cooldown upgrade decreases the cooldown by 1 second
 milestoneManager.createMilestone("deck_cooldown_1", "Fast Hands",           100,  "upgrade_deck", "Lower the deck cooldown.");
 milestoneManager.createMilestone("deck_cooldown_2", "Shuffling Techniques", 400,  "upgrade_deck", "Lower the deck cooldown.");
-milestoneManager.createMilestone("deck_cooldown_3", "Slippery Cards",       900,  "upgrade_deck", "Lower the deck cooldown.");
-milestoneManager.createMilestone("deck_cooldown_4", "Card Sleeves",         1600, "upgrade_deck", "Lower the deck cooldown.");
-milestoneManager.createMilestone("deck_cooldown_5", "Professional Dealers", 2500, "upgrade_deck", "Lower the deck cooldown.");
+milestoneManager.createMilestone("deck_cooldown_3", "Card Sleeves",         900,  "upgrade_deck", "Lower the deck cooldown.");
+milestoneManager.createMilestone("deck_cooldown_4", "Professional Dealers", 1600, "upgrade_deck", "Lower the deck cooldown.");
+milestoneManager.createMilestone("deck_cooldown_5", "Backup Deack",         2500, "upgrade_deck", "Lower the deck cooldown.");
 
 // Hand Upgrades
 // each upgrade increases hand size by 1
