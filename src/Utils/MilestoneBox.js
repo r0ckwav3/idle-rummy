@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {TooltipBox} from "./Tooltip.js";
 import milestoneManager from "./MilestoneManager.js";
 import eventManager from "./EventManager.js";
-// import game from "./Game.js";
+import game from "../Game/Game.js";
 import './styles.css';
 
 
@@ -17,13 +17,13 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
   function handleClick() {
     // TODO: Hook this up to the game file when I finish it
     console.log("Clicked milestone: " + milestoneName);
-    // if(!milestone.active && (milestone.cost !== -1)){
-    //   console.log("Purchasable");
-    //   if(game.attemptPurchase(milestone.cost)){
-    //     // console.log("Purchased");
-    //     milestoneManager.setActive(trueMilestoneID, true);
-    //   }
-    // }
+    if(!milestone.active && (milestone.cost !== -1)){
+      console.log("Purchasable");
+      if(game.attemptPurchase(milestone.cost)){
+        // console.log("Purchased");
+        milestoneManager.setActive(trueMilestoneID, true);
+      }
+    }
   }
 
   return (

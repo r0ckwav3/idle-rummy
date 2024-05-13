@@ -81,13 +81,15 @@ export default milestoneManager;
 milestoneManager.createMilestone("unknown", "???", -1, "other", "You have not unlocked this yet.");
 
 // -- UPGRADES --
-// Global Upgrades
+// Deck Upgrades
+// each deck cooldown upgrade decreases the cooldown by 1 second
+milestoneManager.createMilestone("deck_cooldown_1", "Fast Hands",           100,  "upgrade_deck", "Lower the deck cooldown.");
+milestoneManager.createMilestone("deck_cooldown_2", "Slippery Cards",       200,  "upgrade_deck", "Lower the deck cooldown.");
+milestoneManager.createMilestone("deck_cooldown_3", "Professional Dealers", 400,  "upgrade_deck", "Lower the deck cooldown.");
+milestoneManager.createMilestone("deck_cooldown_4", "Card Sleeves",         800,  "upgrade_deck", "Lower the deck cooldown.");
+milestoneManager.createMilestone("deck_cooldown_5", "Shuffling Techniques", 1600, "upgrade_deck", "Lower the deck cooldown.");
 
-// Wheat Upgrades
-// milestoneManager.createMilestone("wheat_double_1", "Plowed Fields", 100, "upgrade_wheat", "Double the output of your fields.");
-// milestoneManager.createMilestone("wheat_double_2", "Fertilizer", 300, "upgrade_wheat", "Double the output of your fields.");
-// milestoneManager.createMilestone("wheat_double_3", "High Quality Crops", 1000, "upgrade_wheat", "Double the output of your fields.");
-// milestoneManager.createMilestone("wheat_special_1", "Lucky Harvest", 1000, "upgrade_wheat", "Have a 10% chance to get double the yeild.");
+// Card Upgrades
 
 // -- Acheivements --
 // milestoneManager.createMilestone("wheat_achievement_1", "First Field", -1, "achievement", "Purchase your first field.");
