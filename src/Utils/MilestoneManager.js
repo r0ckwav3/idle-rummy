@@ -84,10 +84,19 @@ milestoneManager.createMilestone("unknown", "???", -1, "other", "You have not un
 // Deck Upgrades
 // each deck cooldown upgrade decreases the cooldown by 1 second
 milestoneManager.createMilestone("deck_cooldown_1", "Fast Hands",           100,  "upgrade_deck", "Lower the deck cooldown.");
-milestoneManager.createMilestone("deck_cooldown_2", "Slippery Cards",       200,  "upgrade_deck", "Lower the deck cooldown.");
-milestoneManager.createMilestone("deck_cooldown_3", "Professional Dealers", 400,  "upgrade_deck", "Lower the deck cooldown.");
-milestoneManager.createMilestone("deck_cooldown_4", "Card Sleeves",         800,  "upgrade_deck", "Lower the deck cooldown.");
-milestoneManager.createMilestone("deck_cooldown_5", "Shuffling Techniques", 1600, "upgrade_deck", "Lower the deck cooldown.");
+milestoneManager.createMilestone("deck_cooldown_2", "Shuffling Techniques", 400,  "upgrade_deck", "Lower the deck cooldown.");
+milestoneManager.createMilestone("deck_cooldown_3", "Slippery Cards",       900,  "upgrade_deck", "Lower the deck cooldown.");
+milestoneManager.createMilestone("deck_cooldown_4", "Card Sleeves",         1600, "upgrade_deck", "Lower the deck cooldown.");
+milestoneManager.createMilestone("deck_cooldown_5", "Professional Dealers", 2500, "upgrade_deck", "Lower the deck cooldown.");
+
+// Hand Upgrades
+// each upgrade increases hand size by 1
+milestoneManager.createMilestone("hand_size_1", "Extra Draws",        100,     "upgrade_hand", "Increase your handsize by 1.");
+milestoneManager.createMilestone("hand_size_2", "Bigger Grip",        1000,    "upgrade_hand", "Increase your handsize by 1.");
+milestoneManager.createMilestone("hand_size_3", "Bribed Dealer",      10000,   "upgrade_hand", "Increase your handsize by 1.");
+milestoneManager.createMilestone("hand_size_4", "Double-Faced Cards", 100000,  "upgrade_hand", "Increase your handsize by 1.");
+milestoneManager.createMilestone("hand_size_5", "Ace Up Your Sleeve", 1000000, "upgrade_hand", "Increase your handsize by 1.");
+
 
 // Card Upgrades
 

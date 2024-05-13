@@ -34,9 +34,13 @@ class Game{
         this.deck_cooldown -= 1000;
       }
     }
-    console.log(`deck cooldown = ${this.deck_cooldown}`);
 
     this.cards_per_hand = 5;
+    for(let i = 1; i<6; i++){
+      if(milestoneManager.isActive('hand_size_'+i)){
+        this.cards_per_hand += 1;
+      }
+    }
   }
 
   checkPurchase(cost){
