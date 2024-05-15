@@ -9,16 +9,18 @@ Right now you need to build the react project yourself by cloning this repo. I'l
 ### Todo List
  * Playable Game
    * [X] You can get points by scoring hands
-   * [ ] Deck cooldown
-   * [ ] Upgrades are purchasable (and like 2 upgrades)
+   * [X] Deck cooldown
+   * [X] Upgrades are purchasable (and like 2 upgrades)
    * [ ] Upgrades are displayed nicely
    * [ ] Locked upgrades are hidden/greyed out
    * [ ] Publish to a site
  * Pre-automation
    * [ ] All hand multiplier upgrades
-   * [ ] All handsize increase upgrades
-   * [ ] All timer decrease upgrades
+   * [X] All handsize increase upgrades
+   * [X] All timer decrease upgrades
    * [ ] Golden cards (probably have an upgrade to unlock them)
+   * [ ] Other upgrades
+     * Sort your hand, guarantee a face card, etc.
    * [ ] Playtest and balance
  * Visual upgrades
    * [ ] Backgrounds
