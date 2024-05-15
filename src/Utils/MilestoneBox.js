@@ -25,7 +25,7 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
       }
     }
   }
-
+  console.log(milestone);
   return (
   <button onClick={handleClick} className="milestoneBox">
     <TooltipBox>
@@ -35,6 +35,8 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
         {milestone.cost===-1?"":"cost: "+milestone.cost} {/*TODO:  right align this*/}
         <br />
         {milestone.description}
+        <br />
+        <i className="flavortext">{milestone.flavor}</i>
         <br />
         {milestone.active?"active":"inactive"}
       </div>
@@ -51,6 +53,7 @@ function cloneMilestone(milestone){
     displayName: milestone.displayName,
     cost: milestone.cost,
     description: milestone.description,
+    flavor: milestone.flavor,
     active: milestone.active
   };
 }
