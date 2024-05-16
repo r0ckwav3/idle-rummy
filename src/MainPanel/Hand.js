@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import {dealHand, suitToSymbol, isValidHand} from '../Game/Card.js';
+import {dealHand, suitToSymbol, isValidHand, generateCardImgPath} from '../Game/Card.js';
 import eventManager from '../Utils/EventManager.js';
 
 export default function CardHand(){
@@ -82,14 +82,11 @@ function Card({card, set_selected, islast}){
   }
 
   let myclass = card.selected ? "card selected" : "card";
+  let alt_text = card.value + " of " + card.suit + "s"
 
   return (
-    <div className = "cardcontainer" style={mystyles}>
-      <div className = {myclass} onClick={() => set_selected(!card.selected)}>
-        {suitToSymbol(card.suit)}
-        <br/>
-        {card.value}
-      </div>
+    <div className = "cardContainer" style={mystyles}>
+      <img className = {myclass} src={generateCardImgPath(card)} alt={alt_text} onClick={() => set_selected(!card.selected)} />
   </ div>
   );
 }

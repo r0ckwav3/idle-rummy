@@ -1,7 +1,7 @@
 .cardHand {
     margin-left: 50%;
     transform: translateX(-50%);
-    height: 250px;
+    height: 150px;
     box-sizing: border-box; /* include everything else in width */
     width: 70%;
     display: flex;
@@ -10,22 +10,19 @@
     justify-content: space-between; */
 }
 
-.cardcontainer{
+.cardContainer{
 }
 
 .card{
-    font-family: serif;
-    font-size: 2em;
-    background: #FFF;
-    border: 2px solid #000;
-    padding: 10px;
+    object-fit: cover;
+    object-position: 50% top;
     /* TODO: scale down cards on smaller screens */
     bottom: 0%;
     box-sizing: border-box;
     width: 200px;
 
     margin-top: 0;
-    height: 250px;
+    height: 150px;
     transition-property: margin-top, height;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
@@ -33,12 +30,12 @@
 
 .card:hover{
     margin-top: -20px;
-    height: 270px;
+    height: 170px;
 }
 
 .card.selected{
     margin-top: -50px;
-    height: 300px;
+    height: 200px;
 }
 
 .submitHandButton{
