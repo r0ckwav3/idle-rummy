@@ -36,6 +36,10 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
  * Automation
  * Everything else
 
+### Known Bugs
+Gamebreaking
+ * Purchasing a deck cooldown upgrade while close to the end of the cooldown will prevent a hand from ever being dealt.
+
 ### Point Brainstorming
 Idk where to put this so I'm just tossing it in the readme
 
