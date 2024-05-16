@@ -64,22 +64,13 @@
     margin-top: 25px;
     margin-left: 50px;
 
-    background-size: contain;
+    background-size: 100px 150px;
     background-repeat: no-repeat;
     background-position-y: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.deckLoadingContainer{
-    box-sizing: border-box;
-    width: 80px;
-    height: 20px;
-    background: #000000;
 }
 
 .deckLoading{
-    height: 20px;
-    background: #00FF00;
+    position: relative;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
 }
