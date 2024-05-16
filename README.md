@@ -11,7 +11,7 @@ Right now you need to build the react project yourself by cloning this repo. I'l
    * [X] You can get points by scoring hands
    * [X] Deck cooldown
    * [X] Upgrades are purchasable (and like 2 upgrades)
-   * [ ] Locked upgrades are hidden/greyed out
+   * [X] Locked upgrades are hidden/greyed out
    * [ ] Publish to a site
  * Pre-automation
    * [ ] All hand multiplier upgrades
