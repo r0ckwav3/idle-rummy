@@ -11,8 +11,7 @@ Right now you need to build the react project yourself by cloning this repo. I'l
    * [X] You can get points by scoring hands
    * [X] Deck cooldown
    * [X] Upgrades are purchasable (and like 2 upgrades)
-   * [ ] Upgrades are displayed nicely
-   * [ ] Locked upgrades are hidden/greyed out
+   * [X] Locked upgrades are hidden/greyed out
    * [ ] Publish to a site
  * Pre-automation
    * [ ] All hand multiplier upgrades
@@ -25,6 +24,7 @@ Right now you need to build the react project yourself by cloning this repo. I'l
  * Visual upgrades
    * [ ] Backgrounds
    * [ ] Upgrade Icons
+   * [ ] Upgrades are displayed nicely
    * [ ] Better looking cards?
    * [ ] Card dealing animations?
    * [ ] Card scoring animations

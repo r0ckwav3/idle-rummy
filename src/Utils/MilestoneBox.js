@@ -15,17 +15,13 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
   const icon_img = getMilestoneImage(milestone);
 
   function handleClick() {
-    // TODO: Hook this up to the game file when I finish it
-    // console.log("Clicked milestone: " + milestoneName);
     if(!milestone.active && (milestone.cost !== -1)){
-      // console.log("Purchasable");
       if(game.attemptPurchase(milestone.cost)){
-        // console.log("Purchased");
         milestoneManager.setActive(trueMilestoneID, true);
       }
     }
   }
-  console.log(milestone);
+
   return (
   <button onClick={handleClick} className="milestoneBox">
     <TooltipBox>
@@ -46,7 +42,7 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
 }
 
 // I've got to find a good way to do this
-function cloneMilestone(milestone){
+function shallowCopyMilestone(milestone){
   return {
     name: milestone.name,
     kind: milestone.kind,
@@ -54,18 +50,20 @@ function cloneMilestone(milestone){
     cost: milestone.cost,
     description: milestone.description,
     flavor: milestone.flavor,
-    active: milestone.active
+    active: milestone.active,
+    visible: milestone.visible,
   };
 }
 
 // this could be improved, but I think it works fine as is since updateMilestone shouldn't be called often
 function useMilestone(milestoneID){
-  const [milestone, setMilestone] = useState(cloneMilestone(milestoneManager.getMilestonebyID(milestoneID)));
+  const [milestone, setMilestone] = useState(shallowCopyMilestone(milestoneManager.getMilestonebyID(milestoneID)));
+
 
   useEffect(()=>{
     const eventHook = eventManager.createHook("updateMilestone", e => {
       if(e.milestoneID === milestoneID){
-        setMilestone(cloneMilestone(milestoneManager.getMilestonebyID(milestoneID)));
+        setMilestone(shallowCopyMilestone(milestoneManager.getMilestonebyID(milestoneID)));
       }
     });
 
@@ -74,7 +72,11 @@ function useMilestone(milestoneID){
     };
   });
 
-  return milestone;
+  if(milestone.visible){
+    return milestone;
+  }else{
+    return shallowCopyMilestone(milestoneManager.getMilestonebyID(0)); // the unknown milestone
+  }
 }
 
 function getMilestoneImage(milestone){
