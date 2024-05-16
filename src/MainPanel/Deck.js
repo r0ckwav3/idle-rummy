@@ -14,8 +14,11 @@ export default function DeckComponent(){
     };
   });
 
+  // I need to add this runtime so that the its in the right file location
+  let style = {"backgroundImage":"url(\"images/kenney_boardgame-pack/PNG/Cards/cardBack_red4.png\")"}
+
   return (
-    <div className="deckComponent">
+    <div className="deckComponent" style={style}>
       <div className="deckLoadingContainer">
         <div className="deckLoading" style={{'width': `${timerPercent}%`}}/>
       </div>
