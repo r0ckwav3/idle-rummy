@@ -5,6 +5,7 @@
 // CONSTANTS
 export let suits = ["spade", "heart", "diamond", "club"];
 export let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+const CARDPATH = "images/kenney_boardgame-pack/PNG/Cards/"
 
 // PUBLIC FUNCTIONS
 export function getDeck(){
@@ -111,6 +112,10 @@ export function calculateHandValue(hand){
   // straights
   let cardsum = hand.map(c => singleCardPointValue(c)).reduce((a,b)=>a+b);
   return cardsum * (hand.length ** 2);
+}
+
+export function generateCardImgPath(card){
+  return CARDPATH + "card" + card.suit + "s" + card.value + ".png";
 }
 
 // PRIVATE FUNCTIONS
