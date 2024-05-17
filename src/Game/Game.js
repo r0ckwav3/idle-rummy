@@ -80,6 +80,7 @@ class Game{
     }));
     this.hooks.push(eventManager.createHook("updateMilestone", _e => {
       this.calculateConstants();
+      this.attemptDeal();
     }));
   }
 
