@@ -8,17 +8,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, 'Courier New', monospace;
 }
 
-.mainPanel{
-    position: absolute;
-    right: 30%;
-    left: 0%;
-    top: 0%;
-    bottom: 0%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 .rightPanel{
     position: absolute;
     right: 0%;
