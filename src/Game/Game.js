@@ -6,7 +6,7 @@ import milestoneManager from '../Utils/MilestoneManager.js';
 
 class Game{
   constructor(){
-    this.chips = 0;             // Chips - the standard currency
+    this.chips = 10000000;             // Chips - the standard currency
     this.deck_timer = 0;        // Counts up towards this.deck_cooldown
     this.hooks = [];
     this.hand_empty = true;

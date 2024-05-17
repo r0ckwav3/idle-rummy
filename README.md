@@ -29,6 +29,7 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
      * Sort your hand, guarantee a face card, etc.
    * [ ] Playtest and balance
  * Visual upgrades
+   * [X] Improve chip display
    * [ ] Backgrounds
    * [ ] Upgrade Icons
    * [ ] Upgrades are displayed nicely

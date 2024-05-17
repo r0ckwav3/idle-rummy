@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import eventManager from '../Utils/EventManager.js';
 
 export default function ChipDisplay(){
-  let [labelText, setLabelText] = useState("You have 0 chips.")
+  let [labelText, setLabelText] = useState("0 ")
 
   useEffect(()=>{
     const eventHook = eventManager.createHook("updateChips", e => {
-      setLabelText(`You have ${e.value} chips.`)
+      setLabelText(`${e.value} `)
     });
 
     return () => {
@@ -18,6 +18,7 @@ export default function ChipDisplay(){
   return (
     <div className = "chipDisplay">
       {labelText}
+      <img className="chipIcon" src="images/kenney_boardgame-pack/PNG/Chips/chipRedWhite_border.png" alt="red poker chip" />
     </div>
   )
 }
