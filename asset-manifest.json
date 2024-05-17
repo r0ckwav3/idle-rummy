@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/idle-rummy/static/css/main.7efe6c7c.css",
+    "main.js": "/idle-rummy/static/js/main.d7867d54.js",
+    "index.html": "/idle-rummy/index.html",
+    "main.7efe6c7c.css.map": "/idle-rummy/static/css/main.7efe6c7c.css.map",
+    "main.d7867d54.js.map": "/idle-rummy/static/js/main.d7867d54.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7efe6c7c.css",
+    "static/js/main.d7867d54.js"
+  ]
+}
