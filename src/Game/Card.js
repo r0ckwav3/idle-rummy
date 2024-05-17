@@ -115,7 +115,8 @@ export function calculateHandValue(hand){
 }
 
 export function generateCardImgPath(card){
-  return CARDPATH + "card" + card.suit + "s" + card.value + ".png";
+  let camel_suit = card.suit.at(0).toUpperCase() + card.suit.substr(1);
+  return CARDPATH + "card" + camel_suit + "s" + card.value + ".png";
 }
 
 // PRIVATE FUNCTIONS
