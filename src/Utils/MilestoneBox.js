@@ -80,5 +80,5 @@ function useMilestone(milestoneID){
 }
 
 function getMilestoneImage(milestone){
-  return (<img className="milestoneImage" src={"/images/milestones/"+milestone.kind+"/"+milestone.name+".png"} alt={milestone.displayName + " icon"} />);
+  return (<img className="milestoneImage" src={"images/milestones/"+milestone.kind+"/"+milestone.name+".png"} alt={milestone.displayName + " icon"} />);
 }
