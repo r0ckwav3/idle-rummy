@@ -7,6 +7,7 @@ An idle game built around making high scoring rummy melds.
 Right now you need to build the react project yourself by cloning this repo. I'll get a github sites set up once it's in a vaguely working state.
 
 ### Credits
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 This project uses [React](https://react.dev/) and [Mainloop.js](http://icecreamyou.github.io/MainLoop.js/).
 Card assets are from [Kenney's Boardgame Pack v2](www.kenney.nl).
 All other code and assets in this respository were made by me (r0ckwav3 / Peter Vandervelde).
@@ -37,8 +38,14 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
  * Everything else
 
 ### Known Bugs
-Gamebreaking
- * Purchasing a deck cooldown upgrade while close to the end of the cooldown will prevent a hand from ever being dealt.
+Gamebreaking:
+ * None!
+
+Gameplay
+ * None!
+
+Visual
+ * None!
 
 ### Point Brainstorming
 Idk where to put this so I'm just tossing it in the readme
