@@ -58,7 +58,6 @@ class MilestoneManager{
 
   updateVisiblity(){
     this.milestones.forEach(m => {
-      console.log(m);
       let newvis = m.prerequisites.map(m1=>m1.active).reduce((a,b) => a&&b, true);
       if (newvis !== m.visible){
         m.visible = newvis;
