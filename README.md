@@ -19,7 +19,7 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [X] Deck cooldown
    * [X] Upgrades are purchasable (and like 2 upgrades)
    * [X] Locked upgrades are hidden/greyed out
-   * [ ] Publish to a site
+   * [X] Publish to a site
  * Pre-automation
    * [ ] All hand multiplier upgrades
    * [X] All handsize increase upgrades
