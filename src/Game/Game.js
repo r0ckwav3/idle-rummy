@@ -6,7 +6,7 @@ import milestoneManager from '../Utils/MilestoneManager.js';
 
 class Game{
   constructor(){
-    this.chips = 10000000;             // Chips - the standard currency
+    this.chips = 0;             // Chips - the standard currency
     this.deck_timer = 0;        // Counts up towards this.deck_cooldown
     this.hooks = [];
     this.hand_empty = true;
@@ -106,6 +106,7 @@ class Game{
       let value = this.calculateHandValue();
       this.addChips(value);
       this.hand_empty = true;
+      this.current_selection = [];
       this.attemptDeal();
     }));
     this.hooks.push(eventManager.createHook("updateMilestone", _e => {
