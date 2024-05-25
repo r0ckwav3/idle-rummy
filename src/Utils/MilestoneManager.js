@@ -127,19 +127,19 @@ createMilestoneSequence([
 
 // Card Upgrades
 createMilestoneSequence([
-  milestoneManager.createMilestone("ofakind_double_1", "Double Double",  200,   "upgrade_card", "Double the value of k-of-a-kind hands.", "???"),
-  milestoneManager.createMilestone("ofakind_double_2", "Paired Up",      800,   "upgrade_card", "Double the value of k-of-a-kind hands.", "???"),
-  milestoneManager.createMilestone("ofakind_double_3", "Twinsies",       3200,  "upgrade_card", "Double the value of k-of-a-kind hands.", "???"),
-  milestoneManager.createMilestone("ofakind_double_4", "Seeing Double",  12800, "upgrade_card", "Double the value of k-of-a-kind hands.", "???"),
-  milestoneManager.createMilestone("ofakind_double_5", "More of a kind", 51200, "upgrade_card", "Double the value of k-of-a-kind hands.", "???"),
+  milestoneManager.createMilestone("ofakind_double_1", "Double Double",  200,   "upgrade_card", "Double the value of k-of-a-kind hands.", "Note: do not eat the cards."),
+  milestoneManager.createMilestone("ofakind_double_2", "Paired Up",      800,   "upgrade_card", "Double the value of k-of-a-kind hands.", "Better together!"),
+  milestoneManager.createMilestone("ofakind_double_3", "Twinsies",       3200,  "upgrade_card", "Double the value of k-of-a-kind hands.", "Aren't they so cute!"),
+  milestoneManager.createMilestone("ofakind_double_4", "Seeing Double",  12800, "upgrade_card", "Double the value of k-of-a-kind hands.", "You should get that checked out, actually."),
+  milestoneManager.createMilestone("ofakind_double_5", "More of a kind", 51200, "upgrade_card", "Double the value of k-of-a-kind hands.", "Maybe you'll get 5 one day."),
 ]);
 
 createMilestoneSequence([
-  milestoneManager.createMilestone("straight_double_1", "Big Flushes",            200,   "upgrade_card", "Double the value of straight flush hands.", "???"),
-  milestoneManager.createMilestone("straight_double_2", "Longer Straights",       800,   "upgrade_card", "Double the value of straight flush hands.", "???"),
-  milestoneManager.createMilestone("straight_double_3", "Lined Up",               3200,  "upgrade_card", "Double the value of straight flush hands.", "???"),
-  milestoneManager.createMilestone("straight_double_4", "Straights in Gibraltar", 12800, "upgrade_card", "Double the value of straight flush hands.", "???"),
-  milestoneManager.createMilestone("straight_double_5", "Down the drain",         51200, "upgrade_card", "Double the value of straight flush hands.", "???"),
+  milestoneManager.createMilestone("straight_double_1", "Big Flushes",            200,   "upgrade_card", "Double the value of straight flush hands.", "Bigger is better!"),
+  milestoneManager.createMilestone("straight_double_2", "Longer Straights",       800,   "upgrade_card", "Double the value of straight flush hands.", "More cards is more value."),
+  milestoneManager.createMilestone("straight_double_3", "Lined Up",               3200,  "upgrade_card", "Double the value of straight flush hands.", "Knock 'em down!"),
+  milestoneManager.createMilestone("straight_double_4", "Straights in Gibraltar", 12800, "upgrade_card", "Double the value of straight flush hands.", "We're not sure why they're worth more here."),
+  milestoneManager.createMilestone("straight_double_5", "Down the drain",         51200, "upgrade_card", "Double the value of straight flush hands.", "Flussshhhhhhh."),
 ]);
 
 // -- Acheivements --
