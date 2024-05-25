@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 import eventManager from '../Utils/EventManager.js';
-import {calculateHandValue} from "../Game/Card.js"
 
 export default function SubmitHandButton(){
   let [buttonText, setButtonText] = useState("+0 Chips");
   let [isActive, setIsActive] = useState();
 
   useEffect(()=>{
-    const eventHook = eventManager.createHook("updateHandSelection", e => {
-      let value = calculateHandValue(e.hand);
+    const eventHook = eventManager.createHook("updateHandValue", e => {
+      let value = e.value;
       setButtonText(`+${value} Chips`);
       setIsActive(value !== 0);
     });

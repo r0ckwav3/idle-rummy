@@ -126,6 +126,21 @@ createMilestoneSequence([
 ]);
 
 // Card Upgrades
+createMilestoneSequence([
+  milestoneManager.createMilestone("ofakind_double_1", "Double Double",  400,     "upgrade_card", "Double the value of k-of-a-kind hands.", "???"),
+  milestoneManager.createMilestone("ofakind_double_2", "Paired Up",      1000,    "upgrade_card", "Double the value of k-of-a-kind hands.", "???"),
+  milestoneManager.createMilestone("ofakind_double_3", "Twinsies",       10000,   "upgrade_card", "Double the value of k-of-a-kind hands.", "???"),
+  milestoneManager.createMilestone("ofakind_double_4", "Seeing Double",  100000,  "upgrade_card", "Double the value of k-of-a-kind hands.", "???"),
+  milestoneManager.createMilestone("ofakind_double_5", "More of a kind", 1000000, "upgrade_card", "Double the value of k-of-a-kind hands.", "???"),
+]);
+
+createMilestoneSequence([
+  milestoneManager.createMilestone("straight_double_1", "Big Flushes", 100,     "upgrade_card", "Double the value of straight flush hands.", "???"),
+  milestoneManager.createMilestone("straight_double_2", "Big Flushes", 1000,    "upgrade_card", "Double the value of straight flush hands.", "???"),
+  milestoneManager.createMilestone("straight_double_3", "Big Flushes", 10000,   "upgrade_card", "Double the value of straight flush hands.", "???"),
+  milestoneManager.createMilestone("straight_double_4", "Big Flushes", 100000,  "upgrade_card", "Double the value of straight flush hands.", "???"),
+  milestoneManager.createMilestone("straight_double_5", "Big Flushes", 1000000, "upgrade_card", "Double the value of straight flush hands.", "???"),
+]);
 
 // -- Acheivements --
 // milestoneManager.createMilestone("wheat_achievement_1", "First Field", -1, "achievement", "Purchase your first field.");

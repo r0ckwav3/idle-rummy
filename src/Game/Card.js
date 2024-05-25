@@ -78,9 +78,11 @@ export function isValidHand(hand){
   return false;
 }
 
-export function calculateHandValue(hand){
+// returns (value, type)
+// type is "ofakind" or "straight"
+export function calculateRawHandValue(hand){
   if (!isValidHand(hand)){
-    return 0;
+    return [0, "ofakind"];
   }
   // From README.md:
   //  * For a single card, you get the written value + 10 (face cards are 20 points)
@@ -99,19 +101,19 @@ export function calculateHandValue(hand){
   // n-of-a-kinds
   if(uniquevalues.size === 1){
     if(hand.length === 1){
-      return singleCardPointValue(hand[0]);
+      return [singleCardPointValue(hand[0]), "ofakind"];
     }else if(hand.length === 2){
-      return singleCardPointValue(hand[0]) * 5;
+      return [singleCardPointValue(hand[0]) * 5, "ofakind"];
     }else if(hand.length === 3){
-      return singleCardPointValue(hand[0]) * 50;
+      return [singleCardPointValue(hand[0]) * 50, "ofakind"];
     }else if(hand.length === 4){
-      return singleCardPointValue(hand[0]) * 500;
+      return [singleCardPointValue(hand[0]) * 500, "ofakind"];
     }
   }
 
   // straights
   let cardsum = hand.map(c => singleCardPointValue(c)).reduce((a,b)=>a+b);
-  return cardsum * (hand.length ** 2);
+  return [cardsum * (hand.length ** 2), "straight"];
 }
 
 export function generateCardImgPath(card){

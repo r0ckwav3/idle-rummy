@@ -16,6 +16,18 @@ export default function RightPanel(){
       <MilestoneBox milestoneName = "hand_size_3"/>
       <MilestoneBox milestoneName = "hand_size_4"/>
       <MilestoneBox milestoneName = "hand_size_5"/>
+      <br />
+      <MilestoneBox milestoneName = "ofakind_double_1"/>
+      <MilestoneBox milestoneName = "ofakind_double_2"/>
+      <MilestoneBox milestoneName = "ofakind_double_3"/>
+      <MilestoneBox milestoneName = "ofakind_double_4"/>
+      <MilestoneBox milestoneName = "ofakind_double_5"/>
+      <br />
+      <MilestoneBox milestoneName = "straight_double_1"/>
+      <MilestoneBox milestoneName = "straight_double_2"/>
+      <MilestoneBox milestoneName = "straight_double_3"/>
+      <MilestoneBox milestoneName = "straight_double_4"/>
+      <MilestoneBox milestoneName = "straight_double_5"/>
     </div>
   )
 }

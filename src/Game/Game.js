@@ -1,5 +1,5 @@
 import eventManager from '../Utils/EventManager.js';
-import {dealHand, calculateHandValue} from './Card.js';
+import {dealHand, calculateRawHandValue} from './Card.js';
 import milestoneManager from '../Utils/MilestoneManager.js';
 
 /* GAME CLASS */
@@ -10,6 +10,10 @@ class Game{
     this.deck_timer = 0;        // Counts up towards this.deck_cooldown
     this.hooks = [];
     this.hand_empty = true;
+    this.ofakind_multiplier = 1.0;
+    this.straight_multiplier = 1.0;
+    this.current_selection = [];
+
     this.calculateConstants();
 
     this.setHooks();
@@ -39,6 +43,20 @@ class Game{
     for(let i = 1; i<6; i++){
       if(milestoneManager.isActive('hand_size_'+i)){
         this.cards_per_hand += 1;
+      }
+    }
+
+    this.ofakind_multiplier = 1.0;
+    for(let i = 1; i<6; i++){
+      if(milestoneManager.isActive('ofakind_double_'+i)){
+        this.ofakind_multiplier *= 2;
+      }
+    }
+
+    this.straight_multiplier = 1.0;
+    for(let i = 1; i<6; i++){
+      if(milestoneManager.isActive('straight_double_'+i)){
+        this.straight_multiplier *= 2;
       }
     }
   }
@@ -71,9 +89,21 @@ class Game{
     }
   }
 
+  calculateHandValue(){
+    let [raw_value, hand_type] = calculateRawHandValue(this.current_selection);
+    if (hand_type === "ofakind"){
+      raw_value *= this.ofakind_multiplier;
+    }
+    if (hand_type === "straight"){
+      raw_value *= this.straight_multiplier;
+    }
+    return raw_value;
+  }
+
   setHooks(){
     this.hooks.push(eventManager.createHook("submitHand", e => {
-      let value = calculateHandValue(e.hand);
+      this.current_selection = e.hand;
+      let value = this.calculateHandValue();
       this.addChips(value);
       this.hand_empty = true;
       this.attemptDeal();
@@ -81,6 +111,11 @@ class Game{
     this.hooks.push(eventManager.createHook("updateMilestone", _e => {
       this.calculateConstants();
       this.attemptDeal();
+      eventManager.sendEvent({name: "updateHandValue", value: this.calculateHandValue()});
+    }));
+    this.hooks.push(eventManager.createHook("updateHandSelection", e => {
+      this.current_selection = e.hand;
+      eventManager.sendEvent({name: "updateHandValue", value: this.calculateHandValue()});
     }));
   }
 
