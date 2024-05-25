@@ -21,7 +21,7 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [X] Locked upgrades are hidden/greyed out
    * [X] Publish to a site
  * Pre-automation
-   * [ ] All hand multiplier upgrades
+   * [X] All hand multiplier upgrades
    * [X] All handsize increase upgrades
    * [X] All timer decrease upgrades
    * [ ] Golden cards (probably have an upgrade to unlock them)
