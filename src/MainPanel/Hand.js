@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react';
 
-import {dealHand, suitToSymbol, isValidHand, generateCardImgPath} from '../Game/Card.js';
+import {isValidHand, generateCardImgPath} from '../Game/Card.js';
 import eventManager from '../Utils/EventManager.js';
 
 export default function CardHand(){
   let [handContents, setHandContents] = useState([]);
 
-  function appendCard(suit, value){
-    setHandContents(handContents.concat([
-      {suit:suit, value:value, selected:false}
-    ]));
-    eventManager.sendEvent({name:"updateHandSelection", hand:handContents.filter((c,_j) => c.selected)});
-  }
+  // function appendCard(suit, value){
+  //   setHandContents(handContents.concat([
+  //     {suit:suit, value:value, selected:false}
+  //   ]));
+  //   eventManager.sendEvent({name:"updateHandSelection", hand:handContents.filter((c,_j) => c.selected)});
+  // }
 
   function setSelectedIdx(i, v){
     // slightly sus but I think react is ok with it
