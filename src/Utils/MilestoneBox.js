@@ -41,29 +41,15 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
   );
 }
 
-// I've got to find a good way to do this
-function shallowCopyMilestone(milestone){
-  return {
-    name: milestone.name,
-    kind: milestone.kind,
-    displayName: milestone.displayName,
-    cost: milestone.cost,
-    description: milestone.description,
-    flavor: milestone.flavor,
-    active: milestone.active,
-    visible: milestone.visible,
-  };
-}
-
 // this could be improved, but I think it works fine as is since updateMilestone shouldn't be called often
 function useMilestone(milestoneID){
-  const [milestone, setMilestone] = useState(shallowCopyMilestone(milestoneManager.getMilestonebyID(milestoneID)));
+  const [milestone, setMilestone] = useState(milestoneManager.getMilestonebyID(milestoneID).copy());
 
 
   useEffect(()=>{
     const eventHook = eventManager.createHook("updateMilestone", e => {
       if(e.milestoneID === milestoneID){
-        setMilestone(shallowCopyMilestone(milestoneManager.getMilestonebyID(milestoneID)));
+        setMilestone(milestoneManager.getMilestonebyID(milestoneID).copy());
       }
     });
 
@@ -75,10 +61,10 @@ function useMilestone(milestoneID){
   if(milestone.visible){
     return milestone;
   }else{
-    return shallowCopyMilestone(milestoneManager.getMilestonebyID(0)); // the unknown milestone
+    return milestoneManager.getMilestonebyID(0).copy(); // the unknown milestone
   }
 }
 
 function getMilestoneImage(milestone){
-  return (<img className="milestoneImage" src={"images/milestones/"+milestone.kind+"/"+milestone.name+".png"} alt={milestone.displayName + " icon"} />);
+  return (<img className="milestoneImage" src={milestone.im_path} alt={milestone.displayName + " icon"} />);
 }

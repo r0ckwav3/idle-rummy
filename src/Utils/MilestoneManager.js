@@ -83,9 +83,24 @@ class Milestone{
     this.visible = false; // true if all prerequisistes are active
     this.cost = cost; // negative cost means not purchasable
     this.prerequisites = [];
+    this.im_path = require("../images/milestones/"+kind+"/"+name+".png");
 
     this.kind = kind; // achievement, upgrade_global, upgrade_wheat etc.
     this.pos = null; // used when making upgrade trees
+  }
+
+  copy(){
+    return {
+      name: this.name,
+      kind: this.kind,
+      displayName: this.displayName,
+      cost: this.cost,
+      description: this.description,
+      flavor: this.flavor,
+      active: this.active,
+      visible: this.visible,
+      im_path: this.im_path
+    };
   }
 }
 

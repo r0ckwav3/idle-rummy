@@ -18,7 +18,7 @@ export default function ChipDisplay(){
   return (
     <div className = "chipDisplay">
       {labelText}
-      <img className="chipIcon" src="images/kenney_boardgame-pack/PNG/Chips/chipRedWhite_border.png" alt="red poker chip" />
+      <img className="chipIcon" src={require("../images/kenney_boardgame-pack/chipRedWhite_border.png")} alt="red poker chip" />
     </div>
   )
 }

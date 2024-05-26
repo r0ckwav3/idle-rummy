@@ -5,7 +5,6 @@
 // CONSTANTS
 export let suits = ["spade", "heart", "diamond", "club"];
 export let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-const CARDPATH = "images/kenney_boardgame-pack/PNG/Cards/"
 
 // PUBLIC FUNCTIONS
 export function getDeck(){
@@ -116,9 +115,14 @@ export function calculateRawHandValue(hand){
   return [cardsum * (hand.length ** 2), "straight"];
 }
 
-export function generateCardImgPath(card){
+let card_paths = {};
+getDeck().forEach(card => {
   let camel_suit = card.suit.at(0).toUpperCase() + card.suit.substr(1);
-  return CARDPATH + "card" + camel_suit + "s" + card.value + ".png";
+  let path = require("../images/kenney_boardgame-pack/card" + camel_suit + "s" + card.value + ".png");
+  card_paths[card.suit+card.value] = path;
+});
+export function generateCardImgPath(card){
+  return card_paths[card.suit+card.value]
 }
 
 // PRIVATE FUNCTIONS
