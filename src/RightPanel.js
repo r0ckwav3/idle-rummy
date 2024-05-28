@@ -30,6 +30,7 @@ export default function RightPanel(){
       <MilestoneBox milestoneName = "straight_double_5"/>
       <br />
       <MilestoneBox milestoneName = "golden_unlock"/>
+      <MilestoneBox milestoneName = "sort_hand"/>
     </div>
   )
 }

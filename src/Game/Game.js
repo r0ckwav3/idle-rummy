@@ -1,5 +1,5 @@
 import eventManager from '../Utils/EventManager.js';
-import {getDeck, calculateRawHandValue} from './Card.js';
+import {getDeck, calculateRawHandValue, sortHand} from './Card.js';
 import milestoneManager from '../Utils/MilestoneManager.js';
 
 /* GAME CLASS */
@@ -122,7 +122,11 @@ class Game{
         }
       }
     }
-    return deck.slice(0, cardnum);
+    let hand = deck.slice(0, cardnum);
+    if(milestoneManager.isActive('sort_hand')){
+      sortHand(hand);
+    }
+    return hand;
   }
 
   setHooks(){

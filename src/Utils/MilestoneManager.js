@@ -163,6 +163,10 @@ createMilestoneSequence([
 // Golden Card Upgrades
 milestoneManager.createMilestone("golden_unlock", "Golden Cards", 2000, "upgrade_card", "One in every 100 cards will be a golden card which doubles your score.", "Shiney!!!");
 
+// Other Upgrades
+milestoneManager.createMilestone("sort_hand", "Sorted Hand", 5000, "upgrade_hand", "Sort the cards in your hand.", "Kinda weird that you weren't doing this earlier."
+  ).prerequisites.push(milestoneManager.getMilestone("hand_size_3"));
+
 // -- Acheivements --
 // milestoneManager.createMilestone("wheat_achievement_1", "First Field", -1, "achievement", "Purchase your first field.");
 
