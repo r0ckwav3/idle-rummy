@@ -98,6 +98,11 @@ class Game{
     if (hand_type === "straight"){
       raw_value *= this.straight_multiplier;
     }
+    this.current_selection.forEach(card => {
+      if (card.golden){
+        raw_value *= 10;
+      }
+    })
     return raw_value;
   }
 
@@ -112,7 +117,7 @@ class Game{
       deck[idx] = deck[i];
       deck[i] = temp;
       if (milestoneManager.isActive('golden_unlock')){
-        if ((Math.random() * 2) < 1){
+        if ((Math.random() * 100) < 1){
           deck[i].golden = true;
         }
       }
