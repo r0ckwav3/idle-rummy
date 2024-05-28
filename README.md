@@ -24,7 +24,7 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [X] All hand multiplier upgrades
    * [X] All handsize increase upgrades
    * [X] All timer decrease upgrades
-   * [ ] Golden cards (probably have an upgrade to unlock them)
+   * [X] Golden cards (probably have an upgrade to unlock them)
    * [ ] Other upgrades
      * Sort your hand, guarantee a face card, etc.
    * [ ] Playtest and balance
