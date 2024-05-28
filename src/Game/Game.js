@@ -1,5 +1,5 @@
 import eventManager from '../Utils/EventManager.js';
-import {dealHand, calculateRawHandValue} from './Card.js';
+import {getDeck, calculateRawHandValue} from './Card.js';
 import milestoneManager from '../Utils/MilestoneManager.js';
 
 /* GAME CLASS */
@@ -7,6 +7,7 @@ import milestoneManager from '../Utils/MilestoneManager.js';
 class Game{
   constructor(){
     this.chips = 0;             // Chips - the standard currency
+    this.chips = 10000000;
     this.deck_timer = 0;        // Counts up towards this.deck_cooldown
     this.hooks = [];
     this.hand_empty = true;
@@ -84,7 +85,7 @@ class Game{
     if(this.hand_empty && this.deck_timer >= this.deck_cooldown){
       this.hand_empty = false;
       this.deck_timer = 0;
-      eventManager.sendEvent({name: "dealHand", hand: dealHand(this.cards_per_hand)});
+      eventManager.sendEvent({name: "dealHand", hand: this.dealHand(this.cards_per_hand)});
       eventManager.sendEvent({name: "updateDeckTimer", value: (this.deck_timer/this.deck_cooldown)});
     }
   }
@@ -97,7 +98,31 @@ class Game{
     if (hand_type === "straight"){
       raw_value *= this.straight_multiplier;
     }
+    this.current_selection.forEach(card => {
+      if (card.golden){
+        raw_value *= 10;
+      }
+    })
     return raw_value;
+  }
+
+  dealHand(cardnum){
+    let deck = getDeck();
+    let temp;
+    for(let i = 0; i<cardnum; i++){
+      // pick a card from i-decksize
+      // swap with the first card to "lock in" that pick
+      let idx = i+Math.floor(Math.random()*(deck.length-i));
+      temp = deck[idx];
+      deck[idx] = deck[i];
+      deck[i] = temp;
+      if (milestoneManager.isActive('golden_unlock')){
+        if ((Math.random() * 100) < 1){
+          deck[i].golden = true;
+        }
+      }
+    }
+    return deck.slice(0, cardnum);
   }
 
   setHooks(){

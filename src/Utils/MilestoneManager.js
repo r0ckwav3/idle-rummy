@@ -83,8 +83,11 @@ class Milestone{
     this.visible = false; // true if all prerequisistes are active
     this.cost = cost; // negative cost means not purchasable
     this.prerequisites = [];
-    this.im_path = require("../images/milestones/"+kind+"/"+name+".png");
-
+    try{
+      this.im_path = require("../images/milestones/"+kind+"/"+name+".png");
+    }catch{
+      this.im_path = require("../images/milestones/other/unknown.png")
+    }
     this.kind = kind; // achievement, upgrade_global, upgrade_wheat etc.
     this.pos = null; // used when making upgrade trees
   }
@@ -156,6 +159,9 @@ createMilestoneSequence([
   milestoneManager.createMilestone("straight_double_4", "Straights in Gibraltar", 12800, "upgrade_card", "Double the value of straight flush hands.", "We're not sure why they're worth more here."),
   milestoneManager.createMilestone("straight_double_5", "Down the drain",         51200, "upgrade_card", "Double the value of straight flush hands.", "Flussshhhhhhh."),
 ]);
+
+// Golden Card Upgrades
+milestoneManager.createMilestone("golden_unlock", "Golden Cards", 2000, "upgrade_card", "One in every 100 cards will be a golden card which doubles your score.", "Shiney!!!");
 
 // -- Acheivements --
 // milestoneManager.createMilestone("wheat_achievement_1", "First Field", -1, "achievement", "Purchase your first field.");

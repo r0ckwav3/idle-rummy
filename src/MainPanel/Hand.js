@@ -17,7 +17,9 @@ export default function CardHand(){
     // slightly sus but I think react is ok with it
     let temphand = handContents.map((el, j) => {
       if(j === i){
-        return {suit:el.suit, value:el.value, selected: v};
+        let el2 = Object.assign({}, el)
+        el2.selected = v
+        return el2
       }else{
         return el;
       }
@@ -73,20 +75,20 @@ export default function CardHand(){
 }
 
 function Card({card, set_selected, islast}){
-  let mystyles = {"width": 200};
+  let container_style = {"width": 200};
 
   if (islast){
-    mystyles["minWidth"] = 200;
+    container_style["minWidth"] = 200;
   }else{
-    mystyles["minWidth"] = 0;
+    container_style["minWidth"] = 0;
   }
 
   let myclass = card.selected ? "card selected" : "card";
   let alt_text = card.value + " of " + card.suit + "s"
 
   return (
-    <div className = "cardContainer" style={mystyles}>
-      <img className = {myclass} src={generateCardImgPath(card)} alt={alt_text} onClick={() => set_selected(!card.selected)} />
-  </ div>
+    <div className = "cardContainer" style={container_style}>
+      <img className = {myclass} src={generateCardImgPath(card)} alt={alt_text} onClick={() => set_selected(!card.selected)}/>
+    </ div>
   );
 }

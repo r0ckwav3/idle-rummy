@@ -28,6 +28,8 @@ export default function RightPanel(){
       <MilestoneBox milestoneName = "straight_double_3"/>
       <MilestoneBox milestoneName = "straight_double_4"/>
       <MilestoneBox milestoneName = "straight_double_5"/>
+      <br />
+      <MilestoneBox milestoneName = "golden_unlock"/>
     </div>
   )
 }

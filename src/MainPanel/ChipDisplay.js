@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import chipImage from "../images/icons/chipRedWhite_border.png";
 import eventManager from '../Utils/EventManager.js';
 
 export default function ChipDisplay(){
@@ -18,7 +19,7 @@ export default function ChipDisplay(){
   return (
     <div className = "chipDisplay">
       {labelText}
-      <img className="chipIcon" src={require("../images/kenney_boardgame-pack/chipRedWhite_border.png")} alt="red poker chip" />
+      <img className="chipIcon" src={chipImage} alt="red poker chip" />
     </div>
   )
 }
