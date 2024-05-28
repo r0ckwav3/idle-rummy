@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import eventManager from '../Utils/EventManager.js';
+import cardBackImage from '../images/cards/cardBack_red4.png';
 
 export default function DeckComponent(){
   const [timerPercent, setTimerPercent] = useState(50);
@@ -14,9 +15,7 @@ export default function DeckComponent(){
     };
   });
 
-  // I need to add this runtime so that the its in the right file location
-  let im = require('../images/kenney_boardgame-pack/cardBack_red4.png');
-  let component_style = {'backgroundImage':`url(${im})`};
+  let component_style = {'backgroundImage':`url(${cardBackImage})`};
   let loading_style = {'top': `${timerPercent}%`, 'height': `${100-timerPercent}%`};
 
   return (

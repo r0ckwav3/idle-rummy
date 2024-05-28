@@ -118,7 +118,7 @@ export function calculateRawHandValue(hand){
 let card_paths = {};
 getDeck().forEach(card => {
   let camel_suit = card.suit.at(0).toUpperCase() + card.suit.substr(1);
-  let path = require("../images/kenney_boardgame-pack/card" + camel_suit + "s" + card.value + ".png");
+  let path = require("../images/cards/card" + camel_suit + "s" + card.value + ".png");
   card_paths[card.suit+card.value] = path;
 });
 export function generateCardImgPath(card){
