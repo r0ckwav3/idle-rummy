@@ -15,20 +15,6 @@ export function getDeck(){
   );
 }
 
-export function dealHand(cardnum){
-  let deck = getDeck();
-  let temp;
-  for(let i = 0; i<cardnum; i++){
-    // pick a card from i-decksize
-    // swap with the first card to "lock in" that pick
-    let idx = i+Math.floor(Math.random()*(deck.length-i));
-    temp = deck[idx];
-    deck[idx] = deck[i];
-    deck[i] = temp;
-  }
-  return deck.slice(0, cardnum);
-}
-
 export function randomCard(){
   let s = suits[Math.floor(Math.random()*suits.length)];
   let v = values[Math.floor(Math.random()*values.length)];
@@ -120,8 +106,13 @@ getDeck().forEach(card => {
   let camel_suit = card.suit.at(0).toUpperCase() + card.suit.substr(1);
   let path = require("../images/cards/card" + camel_suit + "s" + card.value + ".png");
   card_paths[card.suit+card.value] = path;
+  let gpath = require("../images/golden_cards/card" + camel_suit + "s" + card.value + ".png");
+  card_paths["g"+card.suit+card.value] = gpath;
 });
 export function generateCardImgPath(card){
+  if (card["golden"]){
+    return card_paths["g"+card.suit+card.value]
+  }
   return card_paths[card.suit+card.value]
 }
 
