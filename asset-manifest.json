@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/idle-rummy/static/css/main.95dc925a.css",
-    "main.js": "/idle-rummy/static/js/main.6bbd67ac.js",
+    "main.css": "/idle-rummy/static/css/main.435a9c9d.css",
+    "main.js": "/idle-rummy/static/js/main.351ceb57.js",
     "index.html": "/idle-rummy/index.html",
-    "main.95dc925a.css.map": "/idle-rummy/static/css/main.95dc925a.css.map",
-    "main.6bbd67ac.js.map": "/idle-rummy/static/js/main.6bbd67ac.js.map"
+    "main.435a9c9d.css.map": "/idle-rummy/static/css/main.435a9c9d.css.map",
+    "main.351ceb57.js.map": "/idle-rummy/static/js/main.351ceb57.js.map"
   },
   "entrypoints": [
-    "static/css/main.95dc925a.css",
-    "static/js/main.6bbd67ac.js"
+    "static/css/main.435a9c9d.css",
+    "static/js/main.351ceb57.js"
   ]
 }
