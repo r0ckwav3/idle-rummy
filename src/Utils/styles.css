@@ -8,6 +8,14 @@
   text-align: center;
 }
 
+.milestoneBox.inactive {
+    filter: brightness(50%);
+}
+
+.milestoneBox.inactive:hover{
+    filter: brightness(70%);
+}
+
 .milestoneImage {
     image-rendering: pixelated;
     width: 50px;

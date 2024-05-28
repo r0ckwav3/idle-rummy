@@ -3,7 +3,7 @@
 
 
 // CONSTANTS
-export let suits = ["spade", "heart", "diamond", "club"];
+export let suits = ["spade", "heart", "club", "diamond"]; // this order makes sorting look nicer
 export let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
 // PUBLIC FUNCTIONS
@@ -116,6 +116,10 @@ export function generateCardImgPath(card){
   return card_paths[card.suit+card.value]
 }
 
+export function sortHand(hand){
+  hand.sort(compare);
+}
+
 // PRIVATE FUNCTIONS
 
 function singleCardPointValue(card){
@@ -129,4 +133,12 @@ function singleCardPointValue(card){
 
 function valueToNum(value){
   return values.findIndex(x => x===value);
+}
+
+function compare(card1, card2){
+  if (card1.suit !== card2.suit){
+    return suits.findIndex(x => x===card1.suit) - suits.findIndex(x => x===card2.suit);
+  }else{
+    return values.findIndex(x => x===card1.value) - values.findIndex(x => x===card2.value);
+  }
 }
