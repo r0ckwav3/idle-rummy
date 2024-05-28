@@ -11,14 +11,25 @@ code {
 .rightPanel{
     position: absolute;
     right: 0%;
-    left: 70%;
+    left: 80%;
     top: 0%;
     bottom: 0%;
-    /* padding-left: 20px;
+    padding-left: 20px;
+    /*
     display: flex;
     flex-direction: row;
     justify-content: space-between; */
 
-    /* temporary */
-    background: #FFE;
+    /* background image is set in the compoenent due to webpack shenanagins*/
+    background-size: contain;
+}
+
+.woodBeam{
+    position: absolute;
+    right: 20%;
+    top: 0%;
+    bottom: 0%;
+    width: 20px;
+    background-size: contain;
+    z-index: 2;
 }

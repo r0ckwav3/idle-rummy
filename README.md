@@ -11,6 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Card assets are from [Kenney's Boardgame Pack v2](www.kenney.nl).
 
+Wood background texture is from [texturify](https://texturify.com/stock-photo/wood-wall-10386.html).
+
 All other code and assets in this respository were made by me (r0ckwav3 / Peter Vandervelde).
 
 ### Todo List

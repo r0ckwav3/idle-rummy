@@ -1,9 +1,10 @@
-import MilestoneBox from "./Utils/MilestoneBox.js"
+import MilestoneBox from "./Utils/MilestoneBox.js";
+import woodPanelImage from "./images/backgrounds/wood_panel.png";
 
 export default function RightPanel(){
+  let component_style = {'backgroundImage':`url(${woodPanelImage})`};
   return (
-    <div className="rightPanel">
-      I'm in the right panel
+    <div className="rightPanel" style={component_style}>
       <br />
       <MilestoneBox milestoneName = "deck_cooldown_1"/>
       <MilestoneBox milestoneName = "deck_cooldown_2"/>
