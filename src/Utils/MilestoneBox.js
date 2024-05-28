@@ -22,8 +22,13 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
     }
   }
 
+  let className = "milestoneBox"
+  if (!milestone.active && milestone.name !== "unknown"){
+    className += " inactive";
+  }
+
   return (
-  <button onClick={handleClick} className="milestoneBox">
+  <button onClick={handleClick} className={className}>
     <TooltipBox>
       {icon_img}
       <div>
