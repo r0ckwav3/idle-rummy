@@ -130,7 +130,7 @@ createMilestoneSequence([
   milestoneManager.createMilestone("deck_cooldown_2", "Shuffling Techniques", 400,  "upgrade_deck", "Lower the deck cooldown.", "Riffle.. Pile.. Pharoh.. There's honestly too many."),
   milestoneManager.createMilestone("deck_cooldown_3", "Card Sleeves",         900,  "upgrade_deck", "Lower the deck cooldown.", "Let those cards gliiiide against each other."),
   milestoneManager.createMilestone("deck_cooldown_4", "Professional Dealers", 1600, "upgrade_deck", "Lower the deck cooldown.", "Why do what you can pay someone else to do for you?"),
-  milestoneManager.createMilestone("deck_cooldown_5", "Backup Deack",         2500, "upgrade_deck", "Lower the deck cooldown.", "You can shuffle one while you're using the other!"),
+  milestoneManager.createMilestone("deck_cooldown_5", "Backup Deck",         2500, "upgrade_deck", "Lower the deck cooldown.", "You can shuffle one while you're using the other!"),
 ]);
 
 // Hand Upgrades
