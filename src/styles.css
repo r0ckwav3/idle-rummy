@@ -7,18 +7,3 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, 'Courier New', monospace;
 }
-
-.rightPanel{
-    position: absolute;
-    right: 0%;
-    left: 70%;
-    top: 0%;
-    bottom: 0%;
-    /* padding-left: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; */
-
-    /* temporary */
-    background: #FFE;
-}

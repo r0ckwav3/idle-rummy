@@ -1,4 +1,6 @@
-import MilestoneBox from "./Utils/MilestoneBox.js"
+import MilestoneBox from "../Utils/MilestoneBox.js"
+
+import "./styles.css";
 
 export default function RightPanel(){
   return (
