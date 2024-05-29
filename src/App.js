@@ -1,7 +1,7 @@
 import MainLoop from 'mainloop.js';
 
 import {TooltipManager} from "./Utils/Tooltip.js";
-import RightPanel from './RightPanel.js';
+import RightPanel from './RightPanel/RightPanel.js';
 import MainPanel from './MainPanel/MainPanel.js';
 
 import game from "./Game/Game.js";
