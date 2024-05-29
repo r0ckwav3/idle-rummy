@@ -1,0 +1,26 @@
+.rightPanel{
+    position: absolute;
+    right: 0%;
+    left: 80%;
+    top: 0%;
+    bottom: 0%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    overflow: scroll;
+
+    background-size: contain;
+}
+
+.upgradeRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.milestoneBoxFiller{
+    height: 50px;
+    width: 50px;
+}

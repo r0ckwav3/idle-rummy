@@ -130,7 +130,7 @@ createMilestoneSequence([
   milestoneManager.createMilestone("deck_cooldown_2", "Shuffling Techniques", 400,  "upgrade_deck", "Lower the deck cooldown.", "Riffle.. Pile.. Pharoh.. There's honestly too many."),
   milestoneManager.createMilestone("deck_cooldown_3", "Card Sleeves",         900,  "upgrade_deck", "Lower the deck cooldown.", "Let those cards gliiiide against each other."),
   milestoneManager.createMilestone("deck_cooldown_4", "Professional Dealers", 1600, "upgrade_deck", "Lower the deck cooldown.", "Why do what you can pay someone else to do for you?"),
-  milestoneManager.createMilestone("deck_cooldown_5", "Backup Deack",         2500, "upgrade_deck", "Lower the deck cooldown.", "You can shuffle one while you're using the other!"),
+  milestoneManager.createMilestone("deck_cooldown_5", "Backup Deck",         2500, "upgrade_deck", "Lower the deck cooldown.", "You can shuffle one while you're using the other!"),
 ]);
 
 // Hand Upgrades
@@ -160,10 +160,11 @@ createMilestoneSequence([
   milestoneManager.createMilestone("straight_double_5", "Down the drain",         51200, "upgrade_card", "Double the value of straight flush hands.", "Flussshhhhhhh."),
 ]);
 
-// Golden Card Upgrades
-milestoneManager.createMilestone("golden_unlock", "Golden Cards", 2000, "upgrade_card", "One in every 100 cards will be a golden card which doubles your score.", "Shiney!!!");
-
 // Other Upgrades
+milestoneManager.createMilestone("golden_unlock", "Golden Cards", 2000, "upgrade_card", "One in every 100 cards will be a golden card which doubles your score.", "Shiney!!!"
+  ).prerequisites.push(milestoneManager.getMilestone("deck_cooldown_3"));
+
+
 milestoneManager.createMilestone("sort_hand", "Sorted Hand", 5000, "upgrade_hand", "Sort the cards in your hand.", "Kinda weird that you weren't doing this earlier."
   ).prerequisites.push(milestoneManager.getMilestone("hand_size_3"));
 

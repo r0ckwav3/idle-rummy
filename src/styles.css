@@ -8,22 +8,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, 'Courier New', monospace;
 }
 
-.rightPanel{
-    position: absolute;
-    right: 0%;
-    left: 80%;
-    top: 0%;
-    bottom: 0%;
-    padding-left: 20px;
-    /*
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; */
-
-    /* background image is set in the compoenent due to webpack shenanagins*/
-    background-size: contain;
-}
-
 .woodBeam{
     position: absolute;
     right: 20%;
