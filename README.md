@@ -33,7 +33,7 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
  * Visual upgrades
    * [X] Improve chip display
    * [ ] Backgrounds
-   * [ ] Upgrade Icons
+   * [X] Upgrade Icons
    * [ ] Upgrades are displayed nicely
    * [X] Better looking cards
    * [ ] Card dealing animations?
