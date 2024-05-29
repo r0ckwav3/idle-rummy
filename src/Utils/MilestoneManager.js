@@ -160,10 +160,11 @@ createMilestoneSequence([
   milestoneManager.createMilestone("straight_double_5", "Down the drain",         51200, "upgrade_card", "Double the value of straight flush hands.", "Flussshhhhhhh."),
 ]);
 
-// Golden Card Upgrades
-milestoneManager.createMilestone("golden_unlock", "Golden Cards", 2000, "upgrade_card", "One in every 100 cards will be a golden card which doubles your score.", "Shiney!!!");
-
 // Other Upgrades
+milestoneManager.createMilestone("golden_unlock", "Golden Cards", 2000, "upgrade_card", "One in every 100 cards will be a golden card which doubles your score.", "Shiney!!!"
+  ).prerequisites.push(milestoneManager.getMilestone("deck_cooldown_3"));
+
+
 milestoneManager.createMilestone("sort_hand", "Sorted Hand", 5000, "upgrade_hand", "Sort the cards in your hand.", "Kinda weird that you weren't doing this earlier."
   ).prerequisites.push(milestoneManager.getMilestone("hand_size_3"));
 
