@@ -1,4 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import MilestoneBox from "../Utils/MilestoneBox.js"
+import milestoneManager from "../Utils/MilestoneManager.js";
+import eventManager from "../Utils/EventManager.js";
 
 import "./styles.css";
 
@@ -14,7 +17,35 @@ const upgrades = [
 ]
 
 export default function RightPanel(){
-  let rows = upgrades.map((row, i) => {
+  const [firstVisibleRow, setFirstVisibleRow] = useState(0);
+
+  function updateVisibleRows(){
+    let best = 0;
+    upgrades.forEach((row, i) =>{
+      row.forEach(m => {
+        if(m!==null && milestoneManager.getMilestone(m).visible){
+          if(i>best){
+            best = i;
+          }
+        }
+      });
+    });
+    setFirstVisibleRow(best);
+  }
+
+  useEffect(()=>{
+    const eventHook = eventManager.createHook("updateMilestone", e => {
+      if(Object.hasOwn(e, "visible")){
+        updateVisibleRows();
+      }
+    });
+
+    return () => {
+      eventManager.removeHook(eventHook);
+    };
+  });
+
+  let rows = upgrades.slice(0,firstVisibleRow+1).map((row, i) => {
     let milestones = row.map(name => {
       if (name === null){
         return (<div className="milestoneBoxFiller"/>);
