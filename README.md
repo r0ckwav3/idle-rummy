@@ -32,7 +32,7 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [ ] Playtest and balance
  * Visual upgrades
    * [X] Improve chip display
-   * [ ] Backgrounds
+   * [X] Backgrounds
    * [X] Upgrade Icons
    * [X] Upgrades are displayed nicely
    * [X] Better looking cards
