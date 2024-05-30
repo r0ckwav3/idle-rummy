@@ -33,6 +33,11 @@
 .cardContainer{
 }
 
+@keyframes card-intro {
+  0%   {height: 0ox; margin-top: 150px;}
+  100% {height: 150px; margin-top: 0px;}
+}
+
 .card{
     object-fit: cover;
     object-position: 50% top;
@@ -41,8 +46,12 @@
     box-sizing: border-box;
     width: 200px;
 
-    margin-top: 0;
     height: 150px;
+    margin-top: 0pc;
+    animation-name: card-intro;
+    animation-duration: 0.3s;
+    animation-fill-mode: backwards;
+
     transition-property: margin-top, height;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
@@ -97,6 +106,7 @@
 
 .chipDisplay{
     font-family: Menlo, Monaco, 'Courier New', monospace;
+    color: white;
     margin-top: 25px;
     margin-right: 50px;
     font-size: 2.5em;
