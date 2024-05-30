@@ -11,6 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Card assets are from [Kenney's Boardgame Pack v2](www.kenney.nl).
 
+Wood background texture is from [texturify](https://texturify.com/stock-photo/wood-wall-10386.html).
+
 All other code and assets in this respository were made by me (r0ckwav3 / Peter Vandervelde).
 
 ### Todo List
@@ -30,8 +32,8 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [ ] Playtest and balance
  * Visual upgrades
    * [X] Improve chip display
-   * [ ] Backgrounds
-   * [ ] Upgrade Icons
+   * [X] Backgrounds
+   * [X] Upgrade Icons
    * [X] Upgrades are displayed nicely
    * [X] Better looking cards
    * [ ] Card dealing animations?

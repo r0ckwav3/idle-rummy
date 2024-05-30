@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import MilestoneBox from "../Utils/MilestoneBox.js"
 import milestoneManager from "../Utils/MilestoneManager.js";
 import eventManager from "../Utils/EventManager.js";
+import woodPanelImage from "../images/backgrounds/wood_panel.png";
 
 import "./styles.css";
+
 
 const upgrades = [
   ["hand_size_1", "deck_cooldown_1", "ofakind_double_1", "straight_double_1"],
@@ -59,9 +61,12 @@ export default function RightPanel(){
       </ div>
     );
   });
+
+  let component_style = {'backgroundImage':`url(${woodPanelImage})`};
+
   return (
-    <div className="rightPanel">
+    <div className="rightPanel" style={component_style}>
       {rows}
     </div>
-  )
+  );
 }

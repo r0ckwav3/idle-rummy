@@ -7,3 +7,13 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, 'Courier New', monospace;
 }
+
+.woodBeam{
+    position: absolute;
+    right: 20%;
+    top: 0%;
+    bottom: 0%;
+    width: 20px;
+    background-size: contain;
+    z-index: 2;
+}

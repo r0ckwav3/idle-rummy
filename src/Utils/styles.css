@@ -26,11 +26,12 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    min-width: 100px;
+    min-width: 400px;
     min-height: 30px;
     padding: 10px;
     border: 1px solid #333;
     background: #EEE;
+    z-index: 20;
 }
 
 .flavortext {
