@@ -5,6 +5,7 @@ import eventManager from '../Utils/EventManager.js';
 
 export default function CardHand(){
   let [handContents, setHandContents] = useState([]);
+  let [resetToggle, setResetToggle] = useState(true);
 
   // function appendCard(suit, value){
   //   setHandContents(handContents.concat([
@@ -33,14 +34,14 @@ export default function CardHand(){
   }
 
   function setHand(h){
-    setHandContents(h)
+    setHandContents(h);
+    setResetToggle(resetToggle/2);
     eventManager.sendEvent({name:"updateHandSelection", hand:[]});
   }
 
   let cardobs = handContents.map((el, i) => {
-    let islast = (i === handContents.length-1);
     let set_selected = (v => setSelectedIdx(i, v));
-    return (<Card key = {i+el.suit+el.value} card={el} set_selected={set_selected} islast = {islast}/>);
+    return (<Card key = {i+el.suit+el.value+resetToggle} card={el} set_selected={set_selected} idx={i} card_count={handContents.length}/>);
   });
 
   useEffect(()=>{
@@ -74,13 +75,14 @@ export default function CardHand(){
   );
 }
 
-function Card({card, set_selected, islast}){
-  let container_style = {"width": 200};
+function Card({card, set_selected, idx, card_count}){
+  let container_style = {
+    "width": 200,
+    "minWidth": (idx ===card_count-1) ? 200 : 0
+  };
 
-  if (islast){
-    container_style["minWidth"] = 200;
-  }else{
-    container_style["minWidth"] = 0;
+  let card_style = {
+    "animation-delay": `${(idx/card_count * 0.2)}s`
   }
 
   let myclass = card.selected ? "card selected" : "card";
@@ -88,7 +90,7 @@ function Card({card, set_selected, islast}){
 
   return (
     <div className = "cardContainer" style={container_style}>
-      <img className = {myclass} src={generateCardImgPath(card)} alt={alt_text} onClick={() => set_selected(!card.selected)}/>
+      <img className = {myclass} src={generateCardImgPath(card)} alt={alt_text} onClick={() => set_selected(!card.selected)} style={card_style}/>
     </ div>
   );
 }
