@@ -106,6 +106,7 @@
 
 .chipDisplay{
     font-family: Menlo, Monaco, 'Courier New', monospace;
+    color: white;
     margin-top: 25px;
     margin-right: 50px;
     font-size: 2.5em;
