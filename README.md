@@ -36,7 +36,7 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [X] Upgrade Icons
    * [X] Upgrades are displayed nicely
    * [X] Better looking cards
-   * [ ] Card dealing animations?
+   * [X] Card dealing animations
    * [ ] Card scoring animations
  * Automation
  * Everything else
