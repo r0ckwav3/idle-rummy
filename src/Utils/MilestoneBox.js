@@ -32,14 +32,16 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
     <TooltipBox>
       {icon_img}
       <div>
-        <b> {milestone.displayName} </b>
-        {milestone.cost===-1?"":"cost: "+milestone.cost} {/*TODO:  right align this*/}
-        <br />
+        <div className="milestoneBoxTop">
+          <b> {milestone.displayName} </b>
+          <div className={"upgradeCost" + (milestone.active?" purchased":"")}>
+            {milestone.cost===-1?"":"cost: "+milestone.cost}
+          </div>
+        </div>
+        <br/>
         {milestone.description}
-        <br />
+        <br/>
         <i className="flavortext">{milestone.flavor}</i>
-        <br />
-        {milestone.active?"active":"inactive"}
       </div>
     </ TooltipBox>
   </button>
