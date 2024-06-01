@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef, useContext, useReducer, createContext } from 'react';
+import useWindowDimensions from './WindowDimensions.js'
 import './styles.css';
 
-const tooltipPadding = 10;
+const tooltipPaddingTop = 10;
+const tooltipPaddingBottom = 10;
+const tooltipPaddingHori = 20;
 
 // this is some scuffed code that I might look into fixing
 // this is probably something I can do with a flexbox and relative positioning
 
 function Tooltip({ state }) {
   const [componentRect, setComponentRect] = useState([0,0]);
+  const w_dims = useWindowDimensions();
   const thisRef = useRef();
 
   useEffect(() =>{
@@ -16,9 +20,17 @@ function Tooltip({ state }) {
   }, [state.content])
 
   let my_left = state.x - (componentRect[0]/2);
-  let my_top = state.topy - componentRect[1] - tooltipPadding;
+  console.log(my_left, componentRect[0], w_dims.width);
+  if (my_left<=tooltipPaddingHori) {
+    my_left = componentRect[0]/2 + tooltipPaddingHori;
+  } else if (my_left + componentRect[0] >= w_dims.width-tooltipPaddingHori){
+    my_left = w_dims.width - componentRect[0] - tooltipPaddingHori;
+  }
+  console.log(my_left, componentRect[0], w_dims.width);
+
+  let my_top = state.topy - componentRect[1] - tooltipPaddingTop;
   if (my_top <= 0){
-    my_top = state.bottomy + tooltipPadding;
+    my_top = state.bottomy + tooltipPaddingBottom;
   }
 
   return (
@@ -106,11 +118,17 @@ export function TooltipBox({children}) {
     });
   }
 
+  useEffect(() =>{
+    if(isHovered){
+      setTooltip();
+    }
+  }, [isHovered, children])
+
   // when we rerender this component, it is possible that the contents of the tooltip have changed
   // if this is laggy (for some reason), I could change this to only update if the last child has changed
-  if(isHovered){
-    setTooltip();
-  }
+  // if(isHovered){
+  //   setTooltip();
+  // }
 
   return (
     <div className="TooltipBox" ref={thisRef} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>

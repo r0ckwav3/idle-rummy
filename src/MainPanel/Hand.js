@@ -82,7 +82,7 @@ function Card({card, set_selected, idx, card_count}){
   };
 
   let card_style = {
-    "animation-delay": `${(idx/card_count * 0.2)}s`
+    "animationDelay": `${(idx/card_count * 0.2)}s`
   }
 
   let myclass = card.selected ? "card selected" : "card";
