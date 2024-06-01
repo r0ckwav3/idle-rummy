@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/idle-rummy/static/css/main.a078119c.css",
-    "main.js": "/idle-rummy/static/js/main.7508e0e5.js",
+    "main.css": "/idle-rummy/static/css/main.ae4e0eee.css",
+    "main.js": "/idle-rummy/static/js/main.b189a908.js",
     "static/media/Table.png": "/idle-rummy/static/media/Table.0b42a82a5e8837cd4d78.png",
     "static/media/wood_panel.png": "/idle-rummy/static/media/wood_panel.c5ed259972e2e0f17248.png",
     "static/media/wood_beam.png": "/idle-rummy/static/media/wood_beam.2f7b06e5334bdf65a80d.png",
     "index.html": "/idle-rummy/index.html",
-    "main.a078119c.css.map": "/idle-rummy/static/css/main.a078119c.css.map",
-    "main.7508e0e5.js.map": "/idle-rummy/static/js/main.7508e0e5.js.map"
+    "main.ae4e0eee.css.map": "/idle-rummy/static/css/main.ae4e0eee.css.map",
+    "main.b189a908.js.map": "/idle-rummy/static/js/main.b189a908.js.map"
   },
   "entrypoints": [
-    "static/css/main.a078119c.css",
-    "static/js/main.7508e0e5.js"
+    "static/css/main.ae4e0eee.css",
+    "static/js/main.b189a908.js"
   ]
 }
