@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {TooltipBox} from "./Tooltip.js";
 import milestoneManager from "./MilestoneManager.js";
 import eventManager from "./EventManager.js";
+import {useHiddenMilestone} from "./MilestoneHooks.js"
 import game from "../Game/Game.js";
 import './styles.css';
 
@@ -10,14 +11,13 @@ import './styles.css';
 export default function MilestoneBox({ milestoneID, milestoneName }){
   // TODO: center the image vertically
   // this never changes, but is useful for memoization
-  const trueMilestoneID = useState((milestoneID == null) ? milestoneManager.getMilestone(milestoneName).id : milestoneID)[0];
-  const milestone = useMilestone(trueMilestoneID);
+  const milestone = useHiddenMilestone({ milestoneID, milestoneName });
   const icon_img = getMilestoneImage(milestone);
 
   function handleClick() {
     if(!milestone.active && (milestone.cost !== -1)){
       if(game.attemptPurchase(milestone.cost)){
-        milestoneManager.setActive(trueMilestoneID, true);
+        milestoneManager.setActive(milestone.id, true);
       }
     }
   }
@@ -46,30 +46,6 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
     </ TooltipBox>
   </button>
   );
-}
-
-// this could be improved, but I think it works fine as is since updateMilestone shouldn't be called often
-function useMilestone(milestoneID){
-  const [milestone, setMilestone] = useState(milestoneManager.getMilestonebyID(milestoneID).copy());
-
-
-  useEffect(()=>{
-    const eventHook = eventManager.createHook("updateMilestone", e => {
-      if(e.milestoneID === milestoneID){
-        setMilestone(milestoneManager.getMilestonebyID(milestoneID).copy());
-      }
-    });
-
-    return () => {
-      eventManager.removeHook(eventHook);
-    };
-  });
-
-  if(milestone.visible){
-    return milestone;
-  }else{
-    return milestoneManager.getMilestonebyID(0).copy(); // the unknown milestone
-  }
 }
 
 function getMilestoneImage(milestone){

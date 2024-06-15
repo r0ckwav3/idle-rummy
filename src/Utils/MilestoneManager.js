@@ -94,6 +94,7 @@ class Milestone{
 
   copy(){
     return {
+      id: this.id,
       name: this.name,
       kind: this.kind,
       displayName: this.displayName,
