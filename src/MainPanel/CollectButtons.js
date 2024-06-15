@@ -20,7 +20,7 @@ export default function CollectButtons(){
 function CashOutButton(){
   // TODO: set up default value
   function getText(v){
-    return `Cash Out (+$${v})`;
+    return `Cash Out ($${v})`;
   }
   let [buttonText, setButtonText] = useState(getText(game.getAscendValue()));
 

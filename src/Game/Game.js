@@ -106,6 +106,22 @@ class Game{
     return Math.max(target_value - this.total_money, 0);
   }
 
+  ascend(){
+    this.addMoney(this.getAscendValue());
+    this.ascensionReset();
+  }
+
+  ascensionReset(){
+    this.chips = 0;
+    this.run_chips = 0;
+    eventManager.sendEvent({name: "updateChips", value: 0});
+    eventManager.sendEvent({name: "dealHand", hand: []});
+    this.hand_empty = true;
+    milestoneManager.resetMilestones(1);
+    this.calculateConstants();
+    this.attemptDeal();
+  }
+
   attemptDeal(){
     if(this.hand_empty && this.deck_timer >= this.deck_cooldown){
       this.hand_empty = false;
@@ -171,6 +187,9 @@ class Game{
     this.hooks.push(eventManager.createHook("updateHandSelection", e => {
       this.current_selection = e.hand;
       eventManager.sendEvent({name: "updateHandValue", value: this.calculateHandValue()});
+    }));
+    this.hooks.push(eventManager.createHook("attemptAscend", e => {
+      this.ascend();
     }));
   }
 

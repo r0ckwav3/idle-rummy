@@ -4,10 +4,15 @@ class MilestoneManager{
   constructor(){
     this.milestones = [];
     this.currentid = 0;
+    this.default_reset_tier = -1; // -1 is reserved for acheivements, which never reset
+  }
+
+  setDefaultResetTier(drt){
+    this.default_reset_tier = drt;
   }
 
   createMilestone(name, displayName, cost, kind, description, flavor){
-    let milestone = new Milestone(this.currentid, name, displayName, cost, kind, description, flavor);
+    let milestone = new Milestone(this.currentid, name, displayName, cost, kind, description, flavor, this.default_reset_tier);
     this.milestones.push(milestone);
     this.currentid += 1;
     return milestone;
@@ -43,6 +48,23 @@ class MilestoneManager{
     }
   }
 
+  resetMilestones(level){
+    this.milestones.forEach(m => {
+      if (m.reset_tier <= level && m.reset_tier !== -1){
+        if (m.active){
+          m.active = false;
+          eventManager.sendEvent({
+            name: "updateMilestone",
+            milestoneName: m.name,
+            milestoneID: m.id,
+            active: false
+          });
+        }
+      }
+    });
+    this.updateVisiblity();
+  }
+
   setActive(id, active){
     // console.log("setActive(", id, "+", active, ");")
     let milestone = this.getMilestonebyID(id);
@@ -53,7 +75,7 @@ class MilestoneManager{
       milestoneID: milestone.id,
       active: active
     });
-    this.updateVisiblity()
+    this.updateVisiblity();
   }
 
   updateVisiblity(){
@@ -73,7 +95,7 @@ class MilestoneManager{
 }
 
 class Milestone{
-  constructor(id, name, displayName, cost, kind, description, flavor){
+  constructor(id, name, displayName, cost, kind, description, flavor, reset_tier){
     this.id = id; // id corresponds to position in list
     this.name = name; // name should be snake case
     this.displayName = displayName; // display name can be anything
@@ -83,6 +105,7 @@ class Milestone{
     this.visible = false; // true if all prerequisistes are active
     this.cost = cost; // negative cost means not purchasable
     this.prerequisites = [];
+    this.reset_tier = reset_tier;
     try{
       this.im_path = require("../images/milestones/"+kind+"/"+name+".png");
     }catch{
@@ -120,10 +143,12 @@ export default milestoneManager;
 
 
 // create the milestones
-// misc
+// -- MISC --
+milestoneManager.setDefaultResetTier(-1);
 milestoneManager.createMilestone("unknown", "???", -1, "other", "You have not unlocked this yet.", "???");
 
 // -- UPGRADES --
+milestoneManager.setDefaultResetTier(1);
 // Deck Upgrades
 // each deck cooldown upgrade decreases the cooldown by 1 second
 createMilestoneSequence([
@@ -171,7 +196,11 @@ milestoneManager.createMilestone("sort_hand", "Sorted Hand", 5000, "upgrade_hand
 milestoneManager.createMilestone("unlock_ascension", "Cash Out", 10000, "upgrade_other", "Gain the ability to Cash Out, resetting all progress for money.", "Quit while you're ahead."
   ).prerequisites.push(milestoneManager.getMilestone("deck_cooldown_5"));
 
+// Prestige Upgrades (money)
+milestoneManager.setDefaultResetTier(2);
+
 // -- Acheivements --
+milestoneManager.setDefaultResetTier(-1);
 // milestoneManager.createMilestone("wheat_achievement_1", "First Field", -1, "achievement", "Purchase your first field.");
 
 milestoneManager.updateVisiblity()
