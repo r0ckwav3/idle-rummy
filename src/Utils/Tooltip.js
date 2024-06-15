@@ -20,13 +20,11 @@ function Tooltip({ state }) {
   }, [state.content])
 
   let my_left = state.x - (componentRect[0]/2);
-  console.log(my_left, componentRect[0], w_dims.width);
   if (my_left<=tooltipPaddingHori) {
     my_left = componentRect[0]/2 + tooltipPaddingHori;
   } else if (my_left + componentRect[0] >= w_dims.width-tooltipPaddingHori){
     my_left = w_dims.width - componentRect[0] - tooltipPaddingHori;
   }
-  console.log(my_left, componentRect[0], w_dims.width);
 
   let my_top = state.topy - componentRect[1] - tooltipPaddingTop;
   if (my_top <= 0){
