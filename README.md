@@ -29,7 +29,7 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [X] Golden cards (probably have an upgrade to unlock them)
    * [X] Other upgrades
      * Sort your hand, guarantee a face card, etc.
-   * [ ] Playtest and balance
+   * [X] Playtest and balance
  * Visual upgrades
    * [X] Improve chip display
    * [X] Backgrounds
@@ -38,7 +38,7 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [X] Better looking cards
    * [X] Card dealing animations
    * [ ] Card scoring animations (difficult for technical reasons)
-   * [ ] Better tooltip styling
+   * [X] Better tooltip styling
  * Automation
  * Everything else
 
