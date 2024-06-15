@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 
 import eventManager from '../Utils/EventManager.js';
 import useEventHook from '../Utils/EventHooks.js';
-import {useMilestone, useMilestoneActive} from '../Utils/MilestoneHooks.js'
+import {useMilestoneActive} from '../Utils/MilestoneHooks.js'
+import game from '../Game/Game.js';
 
 export default function CollectButtons(){
   const ascensionUpgradeActive = useMilestoneActive({milestoneName: 'unlock_ascension'});
@@ -18,11 +19,13 @@ export default function CollectButtons(){
 
 function CashOutButton(){
   // TODO: set up default value
-  let [buttonText, setButtonText] = useState("Cash Out (+0)");
+  function getText(v){
+    return `Cash Out (+$${v})`;
+  }
+  let [buttonText, setButtonText] = useState(getText(game.getAscendValue()));
 
   useEventHook("updateAscendValue", e => {
-    let value = e.value;
-    setButtonText(`Cash Out (+${value})`);
+    setButtonText(getText(e.value));
   });
 
   function buttonClicked() {
