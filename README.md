@@ -1,6 +1,6 @@
-# Idle Rummy (working title)
+# Melds of Majesty
 
-An idle game built around making high scoring rummy melds.
+An idle game built around making high scoring rummy melds. Select cards from the bottom of the screen to create n-of-a-kind hands (e.g. two kings) or straight flushes (e.g. 9,10,J of clubs). Spend your hard-earned chips on upgrades in the right panel to improve your scoring skills.
 
 ### Where to play
 
