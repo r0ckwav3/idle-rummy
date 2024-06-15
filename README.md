@@ -16,13 +16,13 @@ Wood background texture is from [texturify](https://texturify.com/stock-photo/wo
 All other code and assets in this respository were made by me (r0ckwav3 / Peter Vandervelde).
 
 ### Todo List
- * Playable Game
+ * Playable Game (PLG)
    * [X] You can get points by scoring hands
    * [X] Deck cooldown
    * [X] Upgrades are purchasable (and like 2 upgrades)
    * [X] Locked upgrades are hidden/greyed out
    * [X] Publish to a site
- * Pre-automation
+ * Pre-automation (PRE)
    * [X] All hand multiplier upgrades
    * [X] All handsize increase upgrades
    * [X] All timer decrease upgrades
@@ -30,7 +30,7 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [X] Other upgrades
      * Sort your hand, guarantee a face card, etc.
    * [X] Playtest and balance
- * Visual upgrades
+ * Visual upgrades (VIS)
    * [X] Improve chip display
    * [X] Backgrounds
    * [X] Upgrade Icons
@@ -39,7 +39,7 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [X] Card dealing animations
    * [ ] Card scoring animations (difficult for technical reasons)
    * [X] Better tooltip styling
- * Automation
+ * Automation (AUT)
    * [ ] Add "Cash Out" Mechanic
      * Creates ascention points (to be renamed)
    * [ ] Add ascention points upgrade in their own tab
@@ -47,11 +47,11 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [ ] Add High Card Automator
    * [ ] Add K-of-a-kind Automator
    * [ ] Add Straight Automator
- * Achievements
+ * Achievements (ACV)
    * [ ] Add Achievements tab
    * [ ] Add Earnings achievements
    * [ ] Lock ascention points upgrades behind an acheivement for ascending once
- * Offline
+ * Offline (OFF)
    * [ ] Add offline detection and offline earnings (maybe locked behind an upgrade)
    * [ ] Add cookies and closed tab detection
 
