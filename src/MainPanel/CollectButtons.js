@@ -2,7 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import eventManager from '../Utils/EventManager.js';
 
-export default function SubmitHandButton(){
+export default function CollectButtons(){
+  return (
+    <div className="collectButtons">
+      <SubmitHandButton/>
+    </div >
+  )
+}
+
+function SubmitHandButton(){
   let [buttonText, setButtonText] = useState("+0 Chips");
   let [isActive, setIsActive] = useState();
 
