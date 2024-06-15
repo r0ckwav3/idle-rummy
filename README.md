@@ -4,7 +4,7 @@ An idle game built around making high scoring rummy melds. Select cards from the
 
 ### Where to play
 
-Right now you need to build the react project yourself by cloning this repo. I'll get a github sites set up once it's in a vaguely working state.
+Play on the [github sites](https://r0ckwav3.github.io/idle-rummy/).
 
 ### Credits
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses [React](https://react.dev/) and [Mainloop.js](http://icecreamyou.github.io/MainLoop.js/).
