@@ -1,18 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import eventManager from '../Utils/EventManager.js';
+import React, {useState} from 'react';
+import useEventHook from '../Utils/EventHooks.js';
 import cardBackImage from '../images/cards/cardBack_red4.png';
 
 export default function DeckComponent(){
   const [timerPercent, setTimerPercent] = useState(50);
 
-  useEffect(()=>{
-    const eventHook = eventManager.createHook("updateDeckTimer", e => {
-      setTimerPercent(e.value * 100);
-    });
-
-    return () => {
-      eventManager.removeHook(eventHook);
-    };
+  useEventHook("updateDeckTimer", e => {
+    setTimerPercent(e.value * 100);
   });
 
   let component_style = {'backgroundImage':`url(${cardBackImage})`};

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {TooltipBox} from "./Tooltip.js";
 import milestoneManager from "./MilestoneManager.js";
-import eventManager from "./EventManager.js";
 import {useHiddenMilestone} from "./MilestoneHooks.js"
 import game from "../Game/Game.js";
 import './styles.css';

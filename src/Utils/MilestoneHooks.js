@@ -1,22 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import milestoneManager from "./MilestoneManager.js";
-import eventManager from "./EventManager.js";
+import useEventHook from "./EventHooks.js";
 
 // useffect is activated too often, but I think since updateMilestone isn't very common, it should be fine
 export function useMilestone({milestoneID, milestoneName}){
   const trueMilestoneID = useState((milestoneID == null) ? milestoneManager.getMilestone(milestoneName).id : milestoneID)[0];
   const [milestone, setMilestone] = useState(milestoneManager.getMilestonebyID(trueMilestoneID).copy());
 
-  useEffect(()=>{
-    const eventHook = eventManager.createHook("updateMilestone", e => {
-      if(e.milestoneID === trueMilestoneID){
-        setMilestone(milestoneManager.getMilestonebyID(trueMilestoneID).copy());
-      }
-    });
-
-    return () => {
-      eventManager.removeHook(eventHook);
-    };
+  useEventHook("updateMilestone", e => {
+    if(e.milestoneID === trueMilestoneID){
+      setMilestone(milestoneManager.getMilestonebyID(trueMilestoneID).copy());
+    }
   });
 
   return milestone;

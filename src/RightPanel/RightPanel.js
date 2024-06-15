@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import MilestoneBox from "../Utils/MilestoneBox.js"
 import milestoneManager from "../Utils/MilestoneManager.js";
-import eventManager from "../Utils/EventManager.js";
+import useEventHook from "../Utils/EventHooks.js";
 import woodPanelImage from "../images/backgrounds/wood_panel.png";
 
 import "./styles.css";
@@ -35,16 +35,10 @@ export default function RightPanel(){
     setFirstVisibleRow(best);
   }
 
-  useEffect(()=>{
-    const eventHook = eventManager.createHook("updateMilestone", e => {
-      if(Object.hasOwn(e, "visible")){
-        updateVisibleRows();
-      }
-    });
-
-    return () => {
-      eventManager.removeHook(eventHook);
-    };
+  useEventHook("updateMilestone", e => {
+    if(Object.hasOwn(e, "visible")){
+      updateVisibleRows();
+    }
   });
 
   let rows = upgrades.slice(0,firstVisibleRow+1).map((row, i) => {
