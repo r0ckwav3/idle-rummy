@@ -164,9 +164,11 @@ createMilestoneSequence([
 milestoneManager.createMilestone("golden_unlock", "Golden Cards", 2000, "upgrade_card", "One in every 100 cards will be a golden card which doubles your score.", "Shiney!!!"
   ).prerequisites.push(milestoneManager.getMilestone("deck_cooldown_3"));
 
-
 milestoneManager.createMilestone("sort_hand", "Sorted Hand", 5000, "upgrade_hand", "Sort the cards in your hand.", "Kinda weird that you weren't doing this earlier."
   ).prerequisites.push(milestoneManager.getMilestone("hand_size_3"));
+
+milestoneManager.createMilestone("unlock_ascension", "Cash Out", 10000, "upgrade_other", "Gain the ability to Cash Out, resetting all progress for (Ascension Points).", "Quit while you're ahead."
+  ).prerequisites.push(milestoneManager.getMilestone("deck_cooldown_5"));
 
 // -- Acheivements --
 // milestoneManager.createMilestone("wheat_achievement_1", "First Field", -1, "achievement", "Purchase your first field.");

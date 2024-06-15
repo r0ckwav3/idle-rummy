@@ -13,7 +13,7 @@ const upgrades = [
   ["hand_size_2", "deck_cooldown_3", "ofakind_double_2", "straight_double_2"],
   [null, "golden_unlock", "deck_cooldown_4", null, null],
   [null, "deck_cooldown_5", "ofakind_double_3", "straight_double_3"],
-  ["hand_size_3", null, "ofakind_double_4", "straight_double_4"],
+  ["hand_size_3", "unlock_ascension", "ofakind_double_4", "straight_double_4"],
   ["hand_size_4", "sort_hand", "ofakind_double_5", "straight_double_5"],
   ["hand_size_5"],
 ]
