@@ -40,7 +40,21 @@ All other code and assets in this respository were made by me (r0ckwav3 / Peter 
    * [ ] Card scoring animations (difficult for technical reasons)
    * [X] Better tooltip styling
  * Automation
- * Everything else
+   * [ ] Add "Cash Out" Mechanic
+     * Creates ascention points (to be renamed)
+   * [ ] Add ascention points upgrade in their own tab
+   * [ ] Add Basic Cash out mechanics and upgrades
+   * [ ] Add High Card Automator
+   * [ ] Add K-of-a-kind Automator
+   * [ ] Add Straight Automator
+ * Achievements
+   * [ ] Add Achievements tab
+   * [ ] Add Earnings achievements
+   * [ ] Lock ascention points upgrades behind an acheivement for ascending once
+ * Offline
+   * [ ] Add offline detection and offline earnings (maybe locked behind an upgrade)
+   * [ ] Add cookies and closed tab detection
+
 
 ### Known Bugs
 Gamebreaking:
