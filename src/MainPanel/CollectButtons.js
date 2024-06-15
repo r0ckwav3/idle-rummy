@@ -26,7 +26,7 @@ function CashOutButton(){
   });
 
   function buttonClicked() {
-    eventManager.sendEvent({name: "attemptSubmitHand"});
+    eventManager.sendEvent({name: "attemptAscend"});
   }
 
   return (
