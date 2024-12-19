@@ -112,14 +112,21 @@ class Game{
   }
 
   ascensionReset(){
+    // reset chips
     this.chips = 0;
     this.run_chips = 0;
     eventManager.sendEvent({name: "updateChips", value: 0});
+
+    // reset hand and deck
     eventManager.sendEvent({name: "dealHand", hand: []});
     this.hand_empty = true;
+    this.deck_timer = 0;
+
+    // reset milestones
     milestoneManager.resetMilestones(1);
+
+    // finish
     this.calculateConstants();
-    this.attemptDeal();
   }
 
   attemptDeal(){
