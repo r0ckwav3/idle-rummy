@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 import {isValidHand, generateCardImgPath} from '../Game/Card.js';
 import eventManager from '../Utils/EventManager.js';
+import useEventHook from '../Utils/EventHooks.js';
 
 export default function CardHand(){
   let [handContents, setHandContents] = useState([]);
@@ -44,28 +45,16 @@ export default function CardHand(){
     return (<Card key = {i+el.suit+el.value+resetToggle} card={el} set_selected={set_selected} idx={i} card_count={handContents.length}/>);
   });
 
-  useEffect(()=>{
-    const eventHook = eventManager.createHook("attemptSubmitHand", _e => {
-      let temphand = handContents.filter((c,_j) => c.selected);
-      if(temphand.length !== 0 && isValidHand(temphand)){
-        setHand([]);
-        eventManager.sendEvent({name: "submitHand", hand: temphand});
-      }
-    });
-
-    return () => {
-      eventManager.removeHook(eventHook);
-    };
+  useEventHook("attemptSubmitHand", _e => {
+    let temphand = handContents.filter((c,_j) => c.selected);
+    if(temphand.length !== 0 && isValidHand(temphand)){
+      setHand([]);
+      eventManager.sendEvent({name: "submitHand", hand: temphand});
+    }
   });
 
-  useEffect(()=>{
-    const eventHook = eventManager.createHook("dealHand", e => {
-      setHand(e.hand);
-    });
-
-    return () => {
-      eventManager.removeHook(eventHook);
-    };
+  useEventHook("dealHand", e => {
+    setHand(e.hand);
   });
 
   return (

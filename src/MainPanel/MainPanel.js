@@ -1,5 +1,5 @@
 import CardHand from "./Hand.js";
-import SubmitHandButton from './SubmitHandButton.js';
+import CollectButtons from './CollectButtons.js';
 import ChipDisplay from './ChipDisplay.js';
 import DeckComponent from './Deck.js';
 import tableBackgroundImage from '../images/backgrounds/Table.png'
@@ -13,7 +13,7 @@ export default function MainPanel(){
         <DeckComponent />
         <ChipDisplay />
       </div>
-      <SubmitHandButton />
+      <CollectButtons />
       <CardHand />
     </div>
   )

@@ -7,7 +7,11 @@ import milestoneManager from '../Utils/MilestoneManager.js';
 class Game{
   constructor(){
     this.chips = 0;             // Chips - the standard currency
-    // this.chips = 10000000;
+    this.run_chips = 0;
+    this.total_chips = 0;
+    this.money = 0;             // Money - ascension currency
+    this.total_money = 0;
+
     this.deck_timer = 0;        // Counts up towards this.deck_cooldown
     this.hooks = [];
     this.hand_empty = true;
@@ -18,6 +22,7 @@ class Game{
     this.calculateConstants();
 
     this.setHooks();
+    this.addChips(100000); // for debug purposes
   }
 
   // dt: time since last game tick, in milliseconds
@@ -77,8 +82,51 @@ class Game{
   }
 
   addChips(n){
+    let oldAscendValue = this.getAscendValue();
+
     this.chips += n;
+    this.run_chips += n;
+    this.total_chips += n;
     eventManager.sendEvent({name: "updateChips", value: this.chips});
+
+    let newAscendValue = this.getAscendValue();
+    if(oldAscendValue !== newAscendValue){
+      eventManager.sendEvent({name: "updateAscendValue", value: newAscendValue});
+    }
+  }
+
+  addMoney(n){
+    this.money += n;
+    this.total_money += n;
+    eventManager.sendEvent({name: "updateMoney", value: this.chips});
+  }
+
+  getAscendValue(){
+    let target_value = Math.floor(Math.sqrt(this.total_chips / 10000));
+    return Math.max(target_value - this.total_money, 0);
+  }
+
+  ascend(){
+    this.addMoney(this.getAscendValue());
+    this.ascensionReset();
+  }
+
+  ascensionReset(){
+    // reset chips
+    this.chips = 0;
+    this.run_chips = 0;
+    eventManager.sendEvent({name: "updateChips", value: 0});
+
+    // reset hand and deck
+    eventManager.sendEvent({name: "dealHand", hand: []});
+    this.hand_empty = true;
+    this.deck_timer = 0;
+
+    // reset milestones
+    milestoneManager.resetMilestones(1);
+
+    // finish
+    this.calculateConstants();
   }
 
   attemptDeal(){
@@ -146,6 +194,9 @@ class Game{
     this.hooks.push(eventManager.createHook("updateHandSelection", e => {
       this.current_selection = e.hand;
       eventManager.sendEvent({name: "updateHandValue", value: this.calculateHandValue()});
+    }));
+    this.hooks.push(eventManager.createHook("attemptAscend", e => {
+      this.ascend();
     }));
   }
 

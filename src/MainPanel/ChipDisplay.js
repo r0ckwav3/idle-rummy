@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import chipImage from "../images/icons/chipRedWhite_border.png";
-import eventManager from '../Utils/EventManager.js';
+import useEventHook from '../Utils/EventHooks.js';
 
 export default function ChipDisplay(){
   let [labelText, setLabelText] = useState("0 ")
 
-  useEffect(()=>{
-    const eventHook = eventManager.createHook("updateChips", e => {
+  useEventHook("updateChips", e => {
       setLabelText(`${e.value} `)
-    });
-
-    return () => {
-      eventManager.removeHook(eventHook);
-    };
   });
 
   return (
